@@ -1,27 +1,31 @@
-// import { basename } from 'path';
-// import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// interface VSCodeWindow {
-//   showErrorMessage(message: string): Thenable<string>;
-//   showWarningMessage(message: string): Thenable<string>;
-// }
+//Folder constructor function
+function makeFolder(folderPath: string, folderName: string) {
+    fs.mkdir(path.resolve(folderPath, folderName), err => {
+      // if err, display error message
+      if (err) {
+        console.log("err: ", err);
+        return vscode.window.showErrorMessage(
+          `Failed to create ${folderName}!`
+        );
+      }
+    });
+}
 
-// const createFolder = (path: string, window: VSCodeWindow): void => {
-//   const folderName = basename(path);
-//   try{
-//     existsSync(path) ? window.showWarningMessage(`Folder ${folderName} already exists`) : mkdirSync(path);
-//   } catch(err) {
-//     window.showErrorMessage(`Something went wrong creating ${folderName} file`);
-//   }
-// };
+//File constructor function
+function makeFile(filePath: string, fileName: string, fileString: string) {
+    fs.writeFile(path.resolve(filePath, fileName), fileString, err => {
+        // if err, display error message
+        if (err) {
+            console.log("err: ", err);
+        return vscode.window.showErrorMessage(
+            `Failed to create ${fileName}!`
+        );}
+    });
+}
 
-// const createFile = (path:string, contents: string, window: VSCodeWindow) => {
-//   const fileName = basename(path);
-//   try {
-//       existsSync(path) ? window.showWarningMessage(`File ${fileName} already exists`) : writeFileSync(path, "hi");
-//   } catch (err) {
-//       window.showErrorMessage(`Something went wrong creating ${fileName} file`);
-//   }
-// };
 
-// export { createFolder, createFile };
+export { makeFolder, makeFile };
