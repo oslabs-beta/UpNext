@@ -10,14 +10,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:upnext.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "upnext.helloWorld",
-				"title": "Hello World"
+				"command": "upnext.createBoilerplate",
+				"title": "Create Boilerplate"
 			}
 		]
 	},
