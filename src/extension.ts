@@ -5,7 +5,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as htmlString from './Boilerplates/htmlBoilerplate';
 import * as messageString from './Boilerplates/message';
-import { makeFolder, makeFile }  from './Peter';
+import * as pkgjsonString from './Boilerplates/pkgjsonBoilerplate';
+import { makeFolder, makeFile }  from './constructors';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -13,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "UpNext" is now active!');
+	console.log('Your extension "UpNext" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
@@ -22,12 +23,15 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
 	  vscode.window.showInformationMessage('UpNext Running!');
-	  const peterPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+	  const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+    
+    makeFile(myPath, 'package.json', pkgjsonString);
+    
+    makeFolder(myPath, 'test');
+    makeFile(`${myPath}\\test`, 'htmlBoilerplate.html', htmlString);
 
-    makeFolder(peterPath, 'test');
-	  makeFolder(`${peterPath}\\test`, 'test-ception');
-    makeFile(`${peterPath}\\test`, 'htmlBoilerplate.html', htmlString);
-	  makeFile(`${peterPath}\\test\\test-ception`, 'message.js', messageString);
+	  makeFolder(`${myPath}\\test`, 'test-ception');
+	  makeFile(`${myPath}\\test\\test-ception`, 'message.js', messageString);
 	});
 	// if context matches command, activate disposable function
 	context.subscriptions.push(disposable);

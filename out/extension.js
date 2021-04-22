@@ -6,13 +6,14 @@ exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
 const htmlString = require("./Boilerplates/htmlBoilerplate");
 const messageString = require("./Boilerplates/message");
-const Peter_1 = require("./Peter");
+const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
+const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "UpNext" is now active!');
+    console.log('Your extension "UpNext" is now active!');
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
@@ -20,11 +21,12 @@ function activate(context) {
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
         vscode.window.showInformationMessage('UpNext Running!');
-        const peterPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-        Peter_1.makeFolder(peterPath, 'test');
-        Peter_1.makeFolder(`${peterPath}\\test`, 'test-ception');
-        Peter_1.makeFile(`${peterPath}\\test`, 'htmlBoilerplate.html', htmlString);
-        Peter_1.makeFile(`${peterPath}\\test\\test-ception`, 'message.js', messageString);
+        const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+        constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+        constructors_1.makeFolder(myPath, 'test');
+        constructors_1.makeFile(`${myPath}\\test`, 'htmlBoilerplate.html', htmlString);
+        constructors_1.makeFolder(`${myPath}\\test`, 'test-ception');
+        constructors_1.makeFile(`${myPath}\\test\\test-ception`, 'message.js', messageString);
     });
     // if context matches command, activate disposable function
     context.subscriptions.push(disposable);
