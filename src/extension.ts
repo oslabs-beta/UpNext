@@ -27,6 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
       const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
       let isWin = process.platform === 'win32';
 
+			let terminal: vscode.Terminal = vscode.window.createTerminal('UpNext');
       if (isWin) {
         makeFile(myPath, 'package.json', pkgjsonString);
 
@@ -35,6 +36,8 @@ export function activate(context: vscode.ExtensionContext) {
 
         makeFolder(`${myPath}\\pages`, 'api');
         makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
+				terminal.sendText('npm install next react react-dom');
+				terminal.show();
       } else {
         makeFile(myPath, 'package.json', pkgjsonString);
 
@@ -43,6 +46,8 @@ export function activate(context: vscode.ExtensionContext) {
 
         makeFolder(`${myPath}/pages`, 'api');
         makeFile(`${myPath}/pages/api`, 'message.js', messageString);
+				terminal.sendText('sudo npm install next react react-dom');
+				terminal.show();
       }
     }
   );
