@@ -4,7 +4,7 @@ exports.deactivate = exports.activate = void 0;
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
-const htmlString = require("./Boilerplates/htmlBoilerplate");
+const indexString = require("./Boilerplates/index");
 const messageString = require("./Boilerplates/message");
 const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
 const constructors_1 = require("./constructors");
@@ -22,11 +22,21 @@ function activate(context) {
         // Display a message box to the user
         vscode.window.showInformationMessage('UpNext Running!');
         const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-        constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
-        constructors_1.makeFolder(myPath, 'test');
-        constructors_1.makeFile(`${myPath}\\test`, 'htmlBoilerplate.html', htmlString);
-        constructors_1.makeFolder(`${myPath}\\test`, 'test-ception');
-        constructors_1.makeFile(`${myPath}\\test\\test-ception`, 'message.js', messageString);
+        let isWin = process.platform === 'win32';
+        if (isWin) {
+            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+            constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
+            constructors_1.makeFolder(`${myPath}\\pages`, 'api');
+            constructors_1.makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
+        }
+        else {
+            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+            constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
+            constructors_1.makeFolder(`${myPath}/pages`, 'api');
+            constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
+        }
     });
     // if context matches command, activate disposable function
     context.subscriptions.push(disposable);
