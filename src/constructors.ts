@@ -27,5 +27,4 @@ function makeFile(filePath: string, fileName: string, fileString: string) {
     });
 }
 
-
 export { makeFolder, makeFile };

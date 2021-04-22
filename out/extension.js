@@ -23,12 +23,15 @@ function activate(context) {
         vscode.window.showInformationMessage('UpNext Running!');
         const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
         let isWin = process.platform === 'win32';
+        let terminal = vscode.window.createTerminal('UpNext');
         if (isWin) {
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
             constructors_1.makeFolder(myPath, 'pages');
             constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
             constructors_1.makeFolder(`${myPath}\\pages`, 'api');
             constructors_1.makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
+            terminal.sendText('npm install next react react-dom');
+            terminal.show();
         }
         else {
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
@@ -36,6 +39,8 @@ function activate(context) {
             constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
             constructors_1.makeFolder(`${myPath}/pages`, 'api');
             constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
+            terminal.sendText('sudo npm install next react react-dom');
+            terminal.show();
         }
     });
     // if context matches command, activate disposable function
