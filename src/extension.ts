@@ -8,6 +8,7 @@ import * as messageString from './Boilerplates/message';
 import * as pkgjsonString from './Boilerplates/pkgjsonBoilerplate';
 import * as signupString from './Boilerplates/signup';
 import * as styleString from './Boilerplates/styles';
+import * as appString from './Boilerplates/_app';
 import { makeFolder, makeFile } from './constructors';
 
 // this method is called when your extension is activated
@@ -34,11 +35,12 @@ export function activate(context: vscode.ExtensionContext) {
         makeFile(myPath, 'package.json', pkgjsonString);
 
         makeFolder(myPath, 'pages');
+        makeFile(`${myPath}\\pages`, '_app.js', appString);
         makeFile(`${myPath}\\pages`, 'index.js', indexString);
         makeFile(`${myPath}\\pages`, 'signup.js', signupString);
 
         makeFolder(myPath, 'styles');
-        makeFile(`${myPath}\\styles`, 'globals.css', styleString);
+        makeFile(`${myPath}\\styles`, 'global.css', styleString);
 
         makeFolder(`${myPath}\\pages`, 'api');
         terminal.sendText('npm install next react react-dom');
@@ -47,11 +49,12 @@ export function activate(context: vscode.ExtensionContext) {
         makeFile(myPath, 'package.json', pkgjsonString);
 
         makeFolder(myPath, 'pages');
+        makeFile(`${myPath}/pages`, '_app.js', appString);
         makeFile(`${myPath}/pages`, 'index.js', indexString);
         makeFile(`${myPath}/pages/`, 'signup.js', signupString);
 
         makeFolder(myPath, 'styles');
-        makeFile(`${myPath}/styles`, 'globals.css', styleString);
+        makeFile(`${myPath}/styles`, 'global.css', styleString);
 
         makeFolder(`${myPath}/pages`, 'api');
         terminal.sendText('npm install next react react-dom');
