@@ -5,8 +5,10 @@ exports.deactivate = exports.activate = void 0;
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
 const indexString = require("./Boilerplates/index");
-const messageString = require("./Boilerplates/message");
 const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
+const signupString = require("./Boilerplates/signup");
+const styleString = require("./Boilerplates/styles");
+const appString = require("./Boilerplates/_app");
 const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -22,24 +24,30 @@ function activate(context) {
         // Display a message box to the user
         vscode.window.showInformationMessage('UpNext Running!');
         const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-        let isWin = process.platform === 'win32';
-        let terminal = vscode.window.createTerminal('UpNext');
+        const isWin = process.platform === 'win32';
+        const terminal = vscode.window.createTerminal('UpNext');
         if (isWin) {
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
             constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}\\pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
+            constructors_1.makeFile(`${myPath}\\pages`, 'signup.js', signupString);
+            constructors_1.makeFolder(myPath, 'styles');
+            constructors_1.makeFile(`${myPath}\\styles`, 'global.css', styleString);
             constructors_1.makeFolder(`${myPath}\\pages`, 'api');
-            constructors_1.makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
             terminal.sendText('npm install next react react-dom');
             terminal.show();
         }
         else {
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
             constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}/pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
+            constructors_1.makeFile(`${myPath}/pages/`, 'signup.js', signupString);
+            constructors_1.makeFolder(myPath, 'styles');
+            constructors_1.makeFile(`${myPath}/styles`, 'global.css', styleString);
             constructors_1.makeFolder(`${myPath}/pages`, 'api');
-            constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-            terminal.sendText('sudo npm install next react react-dom');
+            terminal.sendText('npm install next react react-dom');
             terminal.show();
         }
     });

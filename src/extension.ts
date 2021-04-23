@@ -6,6 +6,9 @@ import * as path from 'path';
 import * as indexString from './Boilerplates/index';
 import * as messageString from './Boilerplates/message';
 import * as pkgjsonString from './Boilerplates/pkgjsonBoilerplate';
+import * as signupString from './Boilerplates/signup';
+import * as styleString from './Boilerplates/styles';
+import * as appString from './Boilerplates/_app';
 import { makeFolder, makeFile } from './constructors';
 
 // this method is called when your extension is activated
@@ -25,29 +28,37 @@ export function activate(context: vscode.ExtensionContext) {
       // Display a message box to the user
       vscode.window.showInformationMessage('UpNext Running!');
       const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-      let isWin = process.platform === 'win32';
+      const isWin = process.platform === 'win32';
 
-			let terminal: vscode.Terminal = vscode.window.createTerminal('UpNext');
+      const terminal: vscode.Terminal = vscode.window.createTerminal('UpNext');
       if (isWin) {
         makeFile(myPath, 'package.json', pkgjsonString);
 
         makeFolder(myPath, 'pages');
+        makeFile(`${myPath}\\pages`, '_app.js', appString);
         makeFile(`${myPath}\\pages`, 'index.js', indexString);
+        makeFile(`${myPath}\\pages`, 'signup.js', signupString);
+
+        makeFolder(myPath, 'styles');
+        makeFile(`${myPath}\\styles`, 'global.css', styleString);
 
         makeFolder(`${myPath}\\pages`, 'api');
-        makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
-				terminal.sendText('npm install next react react-dom');
-				terminal.show();
+        terminal.sendText('npm install next react react-dom');
+        terminal.show();
       } else {
         makeFile(myPath, 'package.json', pkgjsonString);
 
         makeFolder(myPath, 'pages');
+        makeFile(`${myPath}/pages`, '_app.js', appString);
         makeFile(`${myPath}/pages`, 'index.js', indexString);
+        makeFile(`${myPath}/pages/`, 'signup.js', signupString);
+
+        makeFolder(myPath, 'styles');
+        makeFile(`${myPath}/styles`, 'global.css', styleString);
 
         makeFolder(`${myPath}/pages`, 'api');
-        makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-				terminal.sendText('sudo npm install next react react-dom');
-				terminal.show();
+        terminal.sendText('npm install next react react-dom');
+        terminal.show();
       }
     }
   );
