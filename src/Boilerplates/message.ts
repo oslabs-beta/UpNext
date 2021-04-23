@@ -1,6 +1,4 @@
-let messageString = 
-`let message = "Hello World";
+let messageString = `let message = "Hello World";
 console.log(message);`;
-
 
 export = messageString;
