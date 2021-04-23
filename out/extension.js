@@ -39,7 +39,7 @@ function activate(context) {
             constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
             constructors_1.makeFolder(`${myPath}/pages`, 'api');
             constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-            terminal.sendText('sudo npm install next react react-dom');
+            terminal.sendText('npm install next react react-dom');
             terminal.show();
         }
     });
