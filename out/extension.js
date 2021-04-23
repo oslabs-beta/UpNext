@@ -8,6 +8,7 @@ const indexString = require("./Boilerplates/index");
 const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
 const signupString = require("./Boilerplates/signup");
 const styleString = require("./Boilerplates/styles");
+const appString = require("./Boilerplates/_app");
 const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -28,10 +29,11 @@ function activate(context) {
         if (isWin) {
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
             constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}\\pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
             constructors_1.makeFile(`${myPath}\\pages`, 'signup.js', signupString);
             constructors_1.makeFolder(myPath, 'styles');
-            constructors_1.makeFile(`${myPath}\\styles`, 'globals.css', styleString);
+            constructors_1.makeFile(`${myPath}\\styles`, 'global.css', styleString);
             constructors_1.makeFolder(`${myPath}\\pages`, 'api');
             terminal.sendText('npm install next react react-dom');
             terminal.show();
@@ -39,10 +41,11 @@ function activate(context) {
         else {
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
             constructors_1.makeFolder(myPath, 'pages');
+            constructors_1.makeFile(`${myPath}/pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
             constructors_1.makeFile(`${myPath}/pages/`, 'signup.js', signupString);
             constructors_1.makeFolder(myPath, 'styles');
-            constructors_1.makeFile(`${myPath}/styles`, 'globals.css', styleString);
+            constructors_1.makeFile(`${myPath}/styles`, 'global.css', styleString);
             constructors_1.makeFolder(`${myPath}/pages`, 'api');
             terminal.sendText('npm install next react react-dom');
             terminal.show();
