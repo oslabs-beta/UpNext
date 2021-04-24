@@ -27,4 +27,9 @@ function makeFile(filePath: string, fileName: string, fileString: string) {
     });
 }
 
-export { makeFolder, makeFile };
+//FileSync constructor function
+function makeFileSync(filePath: string, fileName: string, fileString: string) {
+  fs.writeFileSync(path.resolve(filePath, fileName), fileString);
+}
+
+export { makeFolder, makeFile, makeFileSync };

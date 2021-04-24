@@ -3,13 +3,15 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as appString from './Boilerplates/_app';
 import * as indexString from './Boilerplates/index';
 import * as messageString from './Boilerplates/message';
-import * as pkgjsonString from './Boilerplates/pkgjsonBoilerplate';
 import * as signupString from './Boilerplates/signup';
+import * as prismaString from './Boilerplates/prismaBoilerplate';
 import * as styleString from './Boilerplates/styles';
-import * as appString from './Boilerplates/_app';
-import { makeFolder, makeFile } from './constructors';
+import * as pkgjsonString from './Boilerplates/pkgjsonBoilerplate';
+import * as envString from './Boilerplates/envBoilerplate';
+import { makeFolder, makeFile, makeFileSync } from './constructors';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -38,12 +40,17 @@ export function activate(context: vscode.ExtensionContext) {
         makeFile(`${myPath}\\pages`, '_app.js', appString);
         makeFile(`${myPath}\\pages`, 'index.js', indexString);
         makeFile(`${myPath}\\pages`, 'signup.js', signupString);
+        makeFolder(`${myPath}\\pages`, 'api');
 
         makeFolder(myPath, 'styles');
         makeFile(`${myPath}\\styles`, 'global.css', styleString);
 
-        makeFolder(`${myPath}\\pages`, 'api');
+        makeFolder(myPath, 'prisma');
+        makeFileSync(`${myPath}\\prisma`, 'schema.prisma', prismaString);
+
         terminal.sendText('npm install next react react-dom');
+        terminal.sendText('npm install prisma --save-dev');
+        // terminal.sendText('npx prisma init');
         terminal.show();
       } else {
         makeFile(myPath, 'package.json', pkgjsonString);
@@ -52,19 +59,19 @@ export function activate(context: vscode.ExtensionContext) {
         makeFile(`${myPath}/pages`, '_app.js', appString);
         makeFile(`${myPath}/pages`, 'index.js', indexString);
         makeFile(`${myPath}/pages/`, 'signup.js', signupString);
+        makeFolder(`${myPath}/pages`, 'api');
 
         makeFolder(myPath, 'styles');
         makeFile(`${myPath}/styles`, 'global.css', styleString);
 
-        makeFolder(`${myPath}/pages`, 'api');
-<<<<<<< HEAD
-        makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-				terminal.sendText('npm install next react react-dom');
-				terminal.show();
-=======
+        makeFolder(myPath, 'prisma');
+        makeFile(`${myPath}/prisma`, 'schema.prisma', prismaString);
+        makeFile(myPath, '.env', envString);
+
         terminal.sendText('npm install next react react-dom');
+        terminal.sendText('npm install prisma --save-dev');
+        // terminal.sendText('npx prisma init');
         terminal.show();
->>>>>>> 24ff3e734b3c07ce27ed78a6cff6cf54c0ab804d
       }
     }
   );

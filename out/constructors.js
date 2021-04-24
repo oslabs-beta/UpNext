@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeFile = exports.makeFolder = void 0;
+exports.makeFileSync = exports.makeFile = exports.makeFolder = void 0;
 const vscode = require("vscode");
 const fs = require("fs");
 const path = require("path");
@@ -26,4 +26,9 @@ function makeFile(filePath, fileName, fileString) {
     });
 }
 exports.makeFile = makeFile;
+//FileSync constructor function
+function makeFileSync(filePath, fileName, fileString) {
+    fs.writeFileSync(path.resolve(filePath, fileName), fileString);
+}
+exports.makeFileSync = makeFileSync;
 //# sourceMappingURL=constructors.js.map

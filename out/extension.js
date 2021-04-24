@@ -4,11 +4,13 @@ exports.deactivate = exports.activate = void 0;
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
-const indexString = require("./Boilerplates/index");
-const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
-const signupString = require("./Boilerplates/signup");
-const styleString = require("./Boilerplates/styles");
 const appString = require("./Boilerplates/_app");
+const indexString = require("./Boilerplates/index");
+const signupString = require("./Boilerplates/signup");
+const prismaString = require("./Boilerplates/prismaBoilerplate");
+const styleString = require("./Boilerplates/styles");
+const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
+const envString = require("./Boilerplates/envBoilerplate");
 const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -32,10 +34,14 @@ function activate(context) {
             constructors_1.makeFile(`${myPath}\\pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
             constructors_1.makeFile(`${myPath}\\pages`, 'signup.js', signupString);
+            constructors_1.makeFolder(`${myPath}\\pages`, 'api');
             constructors_1.makeFolder(myPath, 'styles');
             constructors_1.makeFile(`${myPath}\\styles`, 'global.css', styleString);
-            constructors_1.makeFolder(`${myPath}\\pages`, 'api');
+            constructors_1.makeFolder(myPath, 'prisma');
+            constructors_1.makeFileSync(`${myPath}\\prisma`, 'schema.prisma', prismaString);
             terminal.sendText('npm install next react react-dom');
+            terminal.sendText('npm install prisma --save-dev');
+            // terminal.sendText('npx prisma init');
             terminal.show();
         }
         else {
@@ -44,14 +50,15 @@ function activate(context) {
             constructors_1.makeFile(`${myPath}/pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
             constructors_1.makeFile(`${myPath}/pages/`, 'signup.js', signupString);
+            constructors_1.makeFolder(`${myPath}/pages`, 'api');
             constructors_1.makeFolder(myPath, 'styles');
             constructors_1.makeFile(`${myPath}/styles`, 'global.css', styleString);
-            constructors_1.makeFolder(`${myPath}/pages`, 'api');
-<<<<<<< HEAD
-            constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-=======
->>>>>>> 24ff3e734b3c07ce27ed78a6cff6cf54c0ab804d
+            constructors_1.makeFolder(myPath, 'prisma');
+            constructors_1.makeFile(`${myPath}/prisma`, 'schema.prisma', prismaString);
+            constructors_1.makeFile(myPath, '.env', envString);
             terminal.sendText('npm install next react react-dom');
+            terminal.sendText('npm install prisma --save-dev');
+            // terminal.sendText('npx prisma init');
             terminal.show();
         }
     });
