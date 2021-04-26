@@ -6,11 +6,13 @@ exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
 const appString = require("./Boilerplates/_app");
 const indexString = require("./Boilerplates/index");
+// import * as messageString from './Boilerplates/message';
 const signupString = require("./Boilerplates/signup");
 const prismaString = require("./Boilerplates/prismaBoilerplate");
 const styleString = require("./Boilerplates/styles");
 const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
 const envString = require("./Boilerplates/envBoilerplate");
+const apolloString = require("./Boilerplates/apolloServer");
 const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -29,34 +31,48 @@ function activate(context) {
         const isWin = process.platform === 'win32';
         const terminal = vscode.window.createTerminal('UpNext');
         if (isWin) {
+            //Creates package.json for user
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+            //Creates pages directory with our homepage and signup page
             constructors_1.makeFolder(myPath, 'pages');
             constructors_1.makeFile(`${myPath}\\pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
             constructors_1.makeFile(`${myPath}\\pages`, 'signup.js', signupString);
             constructors_1.makeFolder(`${myPath}\\pages`, 'api');
+            //Creates styles directory with css styling for whole application
             constructors_1.makeFolder(myPath, 'styles');
             constructors_1.makeFile(`${myPath}\\styles`, 'global.css', styleString);
+            //Creates prisma directory with our prisma schemas and env file for sensitive data
             constructors_1.makeFolder(myPath, 'prisma');
-            constructors_1.makeFileSync(`${myPath}\\prisma`, 'schema.prisma', prismaString);
+            constructors_1.makeFile(`${myPath}\\prisma`, 'schema.prisma', prismaString);
+            constructors_1.makeFile(`${myPath}\\prisma`, 'apolloServer.js', apolloString);
+            constructors_1.makeFile(myPath, '.env', envString);
+            //Sends and executes terminal commands for user to install necessary packages
             terminal.sendText('npm install next react react-dom');
+            terminal.sendText('npm install apollo-server graphql');
             terminal.sendText('npm install prisma --save-dev');
             // terminal.sendText('npx prisma init');
             terminal.show();
         }
         else {
+            //Creates package.json for user
             constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+            //Creates pages directory with our homepage and signup page
             constructors_1.makeFolder(myPath, 'pages');
             constructors_1.makeFile(`${myPath}/pages`, '_app.js', appString);
             constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
             constructors_1.makeFile(`${myPath}/pages/`, 'signup.js', signupString);
             constructors_1.makeFolder(`${myPath}/pages`, 'api');
+            //Creates styles directory with css styling for whole application
             constructors_1.makeFolder(myPath, 'styles');
             constructors_1.makeFile(`${myPath}/styles`, 'global.css', styleString);
+            //Creates prisma directory with our prisma schemas and env file for sensitive data
             constructors_1.makeFolder(myPath, 'prisma');
             constructors_1.makeFile(`${myPath}/prisma`, 'schema.prisma', prismaString);
+            constructors_1.makeFile(`${myPath}/prisma`, 'apolloServer.js', apolloString);
             constructors_1.makeFile(myPath, '.env', envString);
             terminal.sendText('npm install next react react-dom');
+            terminal.sendText('npm install apollo-server graphql');
             terminal.sendText('npm install prisma --save-dev');
             // terminal.sendText('npx prisma init');
             terminal.show();

@@ -1,17 +1,16 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as appString from './Boilerplates/_app';
 import * as indexString from './Boilerplates/index';
-import * as messageString from './Boilerplates/message';
+// import * as messageString from './Boilerplates/message';
 import * as signupString from './Boilerplates/signup';
 import * as prismaString from './Boilerplates/prismaBoilerplate';
 import * as styleString from './Boilerplates/styles';
 import * as pkgjsonString from './Boilerplates/pkgjsonBoilerplate';
 import * as envString from './Boilerplates/envBoilerplate';
-import { makeFolder, makeFile, makeFileSync } from './constructors';
+import * as apolloString from './Boilerplates/apolloServer';
+import { makeFolder, makeFile } from './constructors';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -34,41 +33,48 @@ export function activate(context: vscode.ExtensionContext) {
 
       const terminal: vscode.Terminal = vscode.window.createTerminal('UpNext');
       if (isWin) {
+        //Creates package.json for user
         makeFile(myPath, 'package.json', pkgjsonString);
-
+        //Creates pages directory with our homepage and signup page
         makeFolder(myPath, 'pages');
         makeFile(`${myPath}\\pages`, '_app.js', appString);
         makeFile(`${myPath}\\pages`, 'index.js', indexString);
         makeFile(`${myPath}\\pages`, 'signup.js', signupString);
         makeFolder(`${myPath}\\pages`, 'api');
-
+        //Creates styles directory with css styling for whole application
         makeFolder(myPath, 'styles');
         makeFile(`${myPath}\\styles`, 'global.css', styleString);
-
+        //Creates prisma directory with our prisma schemas and env file for sensitive data
         makeFolder(myPath, 'prisma');
-        makeFileSync(`${myPath}\\prisma`, 'schema.prisma', prismaString);
-
+        makeFile(`${myPath}\\prisma`, 'schema.prisma', prismaString);
+        makeFile(`${myPath}\\prisma`, 'apolloServer.js', apolloString);
+        makeFile(myPath, '.env', envString);
+        //Sends and executes terminal commands for user to install necessary packages
         terminal.sendText('npm install next react react-dom');
+        terminal.sendText('npm install apollo-server graphql');
         terminal.sendText('npm install prisma --save-dev');
         // terminal.sendText('npx prisma init');
         terminal.show();
       } else {
+        //Creates package.json for user
         makeFile(myPath, 'package.json', pkgjsonString);
-
+        //Creates pages directory with our homepage and signup page
         makeFolder(myPath, 'pages');
         makeFile(`${myPath}/pages`, '_app.js', appString);
         makeFile(`${myPath}/pages`, 'index.js', indexString);
         makeFile(`${myPath}/pages/`, 'signup.js', signupString);
         makeFolder(`${myPath}/pages`, 'api');
-
+        //Creates styles directory with css styling for whole application
         makeFolder(myPath, 'styles');
         makeFile(`${myPath}/styles`, 'global.css', styleString);
-
+        //Creates prisma directory with our prisma schemas and env file for sensitive data
         makeFolder(myPath, 'prisma');
         makeFile(`${myPath}/prisma`, 'schema.prisma', prismaString);
+        makeFile(`${myPath}/prisma`, 'apolloServer.js', apolloString);
         makeFile(myPath, '.env', envString);
 
         terminal.sendText('npm install next react react-dom');
+        terminal.sendText('npm install apollo-server graphql');
         terminal.sendText('npm install prisma --save-dev');
         // terminal.sendText('npx prisma init');
         terminal.show();
