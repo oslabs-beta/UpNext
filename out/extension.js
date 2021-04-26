@@ -5,7 +5,6 @@ exports.deactivate = exports.activate = void 0;
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
 const indexString = require("./Boilerplates/index");
-const messageString = require("./Boilerplates/message");
 const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
 const signupString = require("./Boilerplates/signup");
 const styleString = require("./Boilerplates/styles");
@@ -48,7 +47,6 @@ function activate(context) {
             constructors_1.makeFolder(myPath, 'styles');
             constructors_1.makeFile(`${myPath}/styles`, 'global.css', styleString);
             constructors_1.makeFolder(`${myPath}/pages`, 'api');
-            constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
             terminal.sendText('npm install next react react-dom');
             terminal.show();
         }

@@ -57,14 +57,8 @@ export function activate(context: vscode.ExtensionContext) {
         makeFile(`${myPath}/styles`, 'global.css', styleString);
 
         makeFolder(`${myPath}/pages`, 'api');
-<<<<<<< HEAD
-        makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-				terminal.sendText('npm install next react react-dom');
-				terminal.show();
-=======
         terminal.sendText('npm install next react react-dom');
         terminal.show();
->>>>>>> main
       }
     }
   );
