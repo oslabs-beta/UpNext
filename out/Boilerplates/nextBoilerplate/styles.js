@@ -1,3 +1,4 @@
+"use strict";
 const stylesString = `h1 {
   text-align: center;
   color: #1E90FF;
@@ -9,6 +10,7 @@ p {
 
 #signup {
   text-align: center;
-}`;
-
-export = stylesString;
+}
+`;
+module.exports = stylesString;
+//# sourceMappingURL=styles.js.map

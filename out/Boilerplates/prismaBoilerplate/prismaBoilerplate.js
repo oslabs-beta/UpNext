@@ -1,8 +1,9 @@
+"use strict";
 const prismaString = `// This is your Prisma schema file
 
 datasource db {
-  provider = "postgresql"
-  url      = env("postgres://gcuwvnue:AD5M6ClavcQ-Mo1QiM8saR_5gOOAulkT@kashin.db.elephantsql.com:5432/gcuwvnue")
+  provider = "sqlite"
+  url = env("DATABASE_URL")
 }
 
 generator client {
@@ -11,9 +12,9 @@ generator client {
 
 model User {
     id       Int    @id @default(autoincrement())
-    name     String
+    email    String @unique
     password String
 }
 `;
-
-export = prismaString;
+module.exports = prismaString;
+//# sourceMappingURL=prismaBoilerplate.js.map
