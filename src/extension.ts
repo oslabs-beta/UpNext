@@ -3,7 +3,6 @@
 import * as vscode from 'vscode';
 import * as appString from './Boilerplates/nextBoilerplate/_app';
 import * as indexString from './Boilerplates/nextBoilerplate/index';
-// import * as messageString from './Boilerplates/message';
 import * as signupString from './Boilerplates/nextBoilerplate/signup';
 import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
 import * as styleString from './Boilerplates/nextBoilerplate/styles';
@@ -50,7 +49,6 @@ export function activate(context: vscode.ExtensionContext) {
       //Creates prisma directory with our prisma schemas and env file for sensitive data
       makeFolder(myPath, 'prisma');
       makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
-      makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
       makeFile(myPath, '.env', envString);
       //Creates server directory with server file along with context, typedefs, and resolvers
       makeFolder(myPath, 'server');
@@ -59,12 +57,12 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
       terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-      terminal.sendText('npm install graphql apollo-server');
+      terminal.sendText('npm install @apollo/client graphql apollo-server');
       terminal.sendText('npm install prisma --save-dev');
       terminal.sendText('npm install @prisma/client');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();
-    } 
+    }
   );
   // if context matches command, activate disposable function
   context.subscriptions.push(disposable);

@@ -10,6 +10,7 @@ p {
 
 #signup {
   text-align: center;
-}`;
+}
+`;
 module.exports = stylesString;
 //# sourceMappingURL=styles.js.map

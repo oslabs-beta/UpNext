@@ -1,5 +1,4 @@
 const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server'
-
 import { Context } from './context';
 
 const typeDefs = \`
@@ -41,7 +40,7 @@ const resolvers = {
         where: {
           email: args.email,
         },
-        data: {email: "hiAndrew@kai.peter"}
+        data: { email: "upnext@codesmith.io" }
       })
     },
     deleteUser: (_parent, args: { email: string }, context: Context) => {

@@ -1,1 +1,1 @@
-{"version":3,"file":"apolloServer.js","sourceRoot":"","sources":["../../../src/Boilerplates/serverBoilerplate/apolloServer.ts"],"names":[],"mappings":";AAAA,MAAM,YAAY,GAAG;;;;;;;;;;IAUjB,CAAC;AAEL,iBAAS,YAAY,CAAC"}
+{"version":3,"file":"apolloServer.js","sourceRoot":"","sources":["../../../src/Boilerplates/serverBoilerplate/apolloServer.ts"],"names":[],"mappings":";AAAA,MAAM,YAAY,GAAG;;;;;;;;;;;CAWpB,CAAC;AAEF,iBAAS,YAAY,CAAC"}
