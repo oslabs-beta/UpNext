@@ -7,7 +7,8 @@ const port = 4000;
 
 const server = new ApolloServer({ schema, context })
 server.listen( { port }, () => {
-  console.log('apollo server running');
-});`;
+  console.log(\`apollo server running on port: \${port}\`);
+});
+`;
 
 export = apolloString;

@@ -12,6 +12,7 @@ const pkgjsonString = `{
   },
   "author": "yourName",
   "license": "ISC"
-}`;
+}
+`;
 
 export = pkgjsonString;

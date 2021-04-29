@@ -6,7 +6,6 @@ exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
 const appString = require("./Boilerplates/nextBoilerplate/_app");
 const indexString = require("./Boilerplates/nextBoilerplate/index");
-// import * as messageString from './Boilerplates/message';
 const signupString = require("./Boilerplates/nextBoilerplate/signup");
 const prismaString = require("./Boilerplates/prismaBoilerplate/prismaBoilerplate");
 const styleString = require("./Boilerplates/nextBoilerplate/styles");
@@ -47,7 +46,6 @@ function activate(context) {
         //Creates prisma directory with our prisma schemas and env file for sensitive data
         constructors_1.makeFolder(myPath, 'prisma');
         constructors_1.makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
-        constructors_1.makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
         constructors_1.makeFile(myPath, '.env', envString);
         //Creates server directory with server file along with context, typedefs, and resolvers
         constructors_1.makeFolder(myPath, 'server');
@@ -56,7 +54,7 @@ function activate(context) {
         constructors_1.makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
         //Sends and executes terminal commands for user to install necessary packages
         terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-        terminal.sendText('npm install graphql apollo-server');
+        terminal.sendText('npm install @apollo/client graphql apollo-server');
         terminal.sendText('npm install prisma --save-dev');
         terminal.sendText('npm install @prisma/client');
         terminal.sendText('npx prisma migrate dev --name init');

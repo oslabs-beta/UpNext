@@ -13,6 +13,7 @@ const pkgjsonString = `{
   },
   "author": "yourName",
   "license": "ISC"
-}`;
+}
+`;
 module.exports = pkgjsonString;
 //# sourceMappingURL=pkgjsonBoilerplate.js.map

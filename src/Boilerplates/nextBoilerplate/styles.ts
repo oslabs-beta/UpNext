@@ -9,6 +9,7 @@ p {
 
 #signup {
   text-align: center;
-}`;
+}
+`;
 
 export = stylesString;
