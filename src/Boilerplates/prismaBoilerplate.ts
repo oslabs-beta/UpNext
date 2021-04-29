@@ -2,7 +2,7 @@ const prismaString = `// This is your Prisma schema file
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("postgres://gcuwvnue:AD5M6ClavcQ-Mo1QiM8saR_5gOOAulkT@kashin.db.elephantsql.com:5432/gcuwvnue")
 }
 
 generator client {
