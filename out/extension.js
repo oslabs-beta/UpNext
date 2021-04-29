@@ -4,15 +4,17 @@ exports.deactivate = exports.activate = void 0;
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
-const appString = require("./Boilerplates/_app");
-const indexString = require("./Boilerplates/index");
+const appString = require("./Boilerplates/nextBoilerplate/_app");
+const indexString = require("./Boilerplates/nextBoilerplate/index");
 // import * as messageString from './Boilerplates/message';
-const signupString = require("./Boilerplates/signup");
-const prismaString = require("./Boilerplates/prismaBoilerplate");
-const styleString = require("./Boilerplates/styles");
-const pkgjsonString = require("./Boilerplates/pkgjsonBoilerplate");
-const envString = require("./Boilerplates/envBoilerplate");
-const apolloString = require("./Boilerplates/apolloServer");
+const signupString = require("./Boilerplates/nextBoilerplate/signup");
+const prismaString = require("./Boilerplates/prismaBoilerplate/prismaBoilerplate");
+const styleString = require("./Boilerplates/nextBoilerplate/styles");
+const pkgjsonString = require("./Boilerplates/rootBoilerplate/pkgjsonBoilerplate");
+const envString = require("./Boilerplates/rootBoilerplate/envBoilerplate");
+const prismagraphqlString = require("./Boilerplates/serverBoilerplate/prismagraphqlBoilerplate");
+const apolloString = require("./Boilerplates/serverBoilerplate/apolloServer");
+const contextString = require("./Boilerplates/serverBoilerplate/contextBoilerplate");
 const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -45,13 +47,17 @@ function activate(context) {
             //Creates prisma directory with our prisma schemas and env file for sensitive data
             constructors_1.makeFolder(myPath, 'prisma');
             constructors_1.makeFile(`${myPath}\\prisma`, 'schema.prisma', prismaString);
-            constructors_1.makeFile(`${myPath}\\prisma`, 'apolloServer.js', apolloString);
             constructors_1.makeFile(myPath, '.env', envString);
+            //Creates server directory with server file along with context, typedefs, and resolvers
+            constructors_1.makeFolder(myPath, 'server');
+            constructors_1.makeFile(`${myPath}\\server`, 'apolloServer.ts', apolloString);
+            constructors_1.makeFile(`${myPath}\\server`, 'prismaGraphql.ts', prismagraphqlString);
+            constructors_1.makeFile(`${myPath}\\server`, 'context.ts', contextString);
             //Sends and executes terminal commands for user to install necessary packages
-            terminal.sendText('npm install next react react-dom');
+            terminal.sendText('npm install next react react-dom ts-node-dev typescript');
             terminal.sendText('npm install apollo-server graphql');
             terminal.sendText('npm install prisma --save-dev');
-            // terminal.sendText('npx prisma init');
+            terminal.sendText('npm install @prisma/client');
             terminal.show();
         }
         else {
@@ -69,12 +75,17 @@ function activate(context) {
             //Creates prisma directory with our prisma schemas and env file for sensitive data
             constructors_1.makeFolder(myPath, 'prisma');
             constructors_1.makeFile(`${myPath}/prisma`, 'schema.prisma', prismaString);
-            constructors_1.makeFile(`${myPath}/prisma`, 'apolloServer.js', apolloString);
             constructors_1.makeFile(myPath, '.env', envString);
-            terminal.sendText('npm install next react react-dom');
+            //Creates server directory with server file along with context, typedefs, and resolvers
+            constructors_1.makeFolder(myPath, 'server');
+            constructors_1.makeFile(`${myPath}/server`, 'apolloServer.ts', apolloString);
+            constructors_1.makeFile(`${myPath}/server`, 'prismaGraphql.ts', prismagraphqlString);
+            constructors_1.makeFile(`${myPath}/server`, 'contextString.ts', contextString);
+            //Sends and executes terminal commands for user to install necessary packages
+            terminal.sendText('npm install next react react-dom ts-node-dev typescript');
             terminal.sendText('npm install apollo-server graphql');
             terminal.sendText('npm install prisma --save-dev');
-            // terminal.sendText('npx prisma init');
+            terminal.sendText('npm install @prisma/client');
             terminal.show();
         }
     });

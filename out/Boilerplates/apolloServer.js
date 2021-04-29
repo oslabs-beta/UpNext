@@ -1,6 +1,9 @@
 "use strict";
 const apolloString = `const { ApolloServer, gql } = require('apollo-server');
 
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 const port = 4000;
 
 const typeDefs = \`
