@@ -18,6 +18,8 @@ const typeDefs = \`
   }
   type Mutation {
     createUser(data: UserInput!): User!
+    deleteUser(email: String!): User!
+    updateUser(email: String!): User!
   }
 \`
 
@@ -32,6 +34,21 @@ const resolvers = {
       return context.prisma.user.create({ data: {
         email: args.data.email,
         password: args.data.password
+        }
+      })
+    },
+    updateUser: (_parent, args: { email: string }, context: Context) => {
+      return context.prisma.user.update({  
+        where: {
+          email: args.email,
+        },
+        data: {email: "hiAndrew@kai.peter"}
+      })
+    },
+    deleteUser: (_parent, args: { email: string }, context: Context) => {
+      return context.prisma.user.delete({
+        where: {
+          email: args.email,
         }
       })
     }
@@ -49,9 +66,4 @@ export const schema = makeExecutableSchema({
 })
 `;
 module.exports = prismagraphqlString;
-// CREATE TABLE User (
-//   id INT GENERATED ALWAYS AS IDENTITY,
-//   email VARCHAR,
-//   pasword VARCHAR
-// );
 //# sourceMappingURL=prismagraphqlBoilerplate.js.map

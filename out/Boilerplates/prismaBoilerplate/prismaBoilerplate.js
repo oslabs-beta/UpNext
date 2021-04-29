@@ -2,7 +2,7 @@
 const prismaString = `// This is your Prisma schema file
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url = env("DATABASE_URL")
 }
 
@@ -12,7 +12,7 @@ generator client {
 
 model User {
     id       Int    @id @default(autoincrement())
-    email    String
+    email    String @unique
     password String
 }
 `;

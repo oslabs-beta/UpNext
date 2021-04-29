@@ -32,62 +32,35 @@ function activate(context) {
         const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
         const isWin = process.platform === 'win32';
         const terminal = vscode.window.createTerminal('UpNext');
-        if (isWin) {
-            //Creates package.json for user
-            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
-            //Creates pages directory with our homepage and signup page
-            constructors_1.makeFolder(myPath, 'pages');
-            constructors_1.makeFile(`${myPath}\\pages`, '_app.js', appString);
-            constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
-            constructors_1.makeFile(`${myPath}\\pages`, 'signup.js', signupString);
-            constructors_1.makeFolder(`${myPath}\\pages`, 'api');
-            //Creates styles directory with css styling for whole application
-            constructors_1.makeFolder(myPath, 'styles');
-            constructors_1.makeFile(`${myPath}\\styles`, 'global.css', styleString);
-            //Creates prisma directory with our prisma schemas and env file for sensitive data
-            constructors_1.makeFolder(myPath, 'prisma');
-            constructors_1.makeFile(`${myPath}\\prisma`, 'schema.prisma', prismaString);
-            constructors_1.makeFile(myPath, '.env', envString);
-            //Creates server directory with server file along with context, typedefs, and resolvers
-            constructors_1.makeFolder(myPath, 'server');
-            constructors_1.makeFile(`${myPath}\\server`, 'apolloServer.ts', apolloString);
-            constructors_1.makeFile(`${myPath}\\server`, 'prismaGraphql.ts', prismagraphqlString);
-            constructors_1.makeFile(`${myPath}\\server`, 'context.ts', contextString);
-            //Sends and executes terminal commands for user to install necessary packages
-            terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-            terminal.sendText('npm install apollo-server graphql');
-            terminal.sendText('npm install prisma --save-dev');
-            terminal.sendText('npm install @prisma/client');
-            terminal.show();
-        }
-        else {
-            //Creates package.json for user
-            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
-            //Creates pages directory with our homepage and signup page
-            constructors_1.makeFolder(myPath, 'pages');
-            constructors_1.makeFile(`${myPath}/pages`, '_app.js', appString);
-            constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
-            constructors_1.makeFile(`${myPath}/pages/`, 'signup.js', signupString);
-            constructors_1.makeFolder(`${myPath}/pages`, 'api');
-            //Creates styles directory with css styling for whole application
-            constructors_1.makeFolder(myPath, 'styles');
-            constructors_1.makeFile(`${myPath}/styles`, 'global.css', styleString);
-            //Creates prisma directory with our prisma schemas and env file for sensitive data
-            constructors_1.makeFolder(myPath, 'prisma');
-            constructors_1.makeFile(`${myPath}/prisma`, 'schema.prisma', prismaString);
-            constructors_1.makeFile(myPath, '.env', envString);
-            //Creates server directory with server file along with context, typedefs, and resolvers
-            constructors_1.makeFolder(myPath, 'server');
-            constructors_1.makeFile(`${myPath}/server`, 'apolloServer.ts', apolloString);
-            constructors_1.makeFile(`${myPath}/server`, 'prismaGraphql.ts', prismagraphqlString);
-            constructors_1.makeFile(`${myPath}/server`, 'contextString.ts', contextString);
-            //Sends and executes terminal commands for user to install necessary packages
-            terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-            terminal.sendText('npm install apollo-server graphql');
-            terminal.sendText('npm install prisma --save-dev');
-            terminal.sendText('npm install @prisma/client');
-            terminal.show();
-        }
+        const divider = isWin ? "\\" : "/";
+        //Creates package.json for user
+        constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
+        //Creates pages directory with our homepage and signup page
+        constructors_1.makeFolder(myPath, 'pages');
+        constructors_1.makeFile(`${myPath}${divider}pages`, '_app.js', appString);
+        constructors_1.makeFile(`${myPath}${divider}pages`, 'index.js', indexString);
+        constructors_1.makeFile(`${myPath}${divider}pages`, 'signup.js', signupString);
+        constructors_1.makeFolder(`${myPath}${divider}pages`, 'api');
+        //Creates styles directory with css styling for whole application
+        constructors_1.makeFolder(myPath, 'styles');
+        constructors_1.makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
+        //Creates prisma directory with our prisma schemas and env file for sensitive data
+        constructors_1.makeFolder(myPath, 'prisma');
+        constructors_1.makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
+        constructors_1.makeFile(`${myPath}${divider}prisma`, 'dev.db', '');
+        constructors_1.makeFile(myPath, '.env', envString);
+        //Creates server directory with server file along with context, typedefs, and resolvers
+        constructors_1.makeFolder(myPath, 'server');
+        constructors_1.makeFile(`${myPath}${divider}server`, 'apolloServer.ts', apolloString);
+        constructors_1.makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
+        constructors_1.makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
+        //Sends and executes terminal commands for user to install necessary packages
+        terminal.sendText('npm install next react react-dom ts-node-dev typescript');
+        terminal.sendText('npm install graphql apollo-server');
+        terminal.sendText('npm install prisma --save-dev');
+        terminal.sendText('npm install @prisma/client');
+        terminal.sendText('npx prisma migrate dev --name init');
+        terminal.show();
     });
     // if context matches command, activate disposable function
     context.subscriptions.push(disposable);
