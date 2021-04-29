@@ -1,4 +1,3 @@
-"use strict";
 const pkgjsonString = `{
   "name": "upnextapp",
   "version": "1.0.0",
@@ -9,10 +8,10 @@ const pkgjsonString = `{
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "startdev": "tsnd --respawn prisma/apolloServer"
+    "startdev": "tsnd --respawn server/apolloServer"
   },
   "author": "yourName",
   "license": "ISC"
 }`;
-module.exports = pkgjsonString;
-//# sourceMappingURL=pkgjsonBoilerplate.js.map
+
+export = pkgjsonString;
