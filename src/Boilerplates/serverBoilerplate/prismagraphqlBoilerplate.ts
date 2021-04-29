@@ -51,7 +51,7 @@ export const schema = makeExecutableSchema({
 export = prismagraphqlString;
 
 
-// CREATE TABLE user (
+// CREATE TABLE User (
 //   id INT GENERATED ALWAYS AS IDENTITY,
 //   email VARCHAR,
 //   pasword VARCHAR
