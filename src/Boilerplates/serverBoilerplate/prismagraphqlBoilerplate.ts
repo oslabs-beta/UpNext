@@ -1,4 +1,4 @@
-const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server'
+const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server-express'
 import { Context } from './context';
 
 const typeDefs = \`
@@ -36,7 +36,7 @@ const resolvers = {
       })
     },
     updateUser: (_parent, args: { email: string }, context: Context) => {
-      return context.prisma.user.update({  
+      return context.prisma.user.update({
         where: {
           email: args.email,
         },

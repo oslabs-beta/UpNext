@@ -9,7 +9,7 @@ const pkgjsonString = `{
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "startdev": "tsnd --respawn server/apolloServer"
+    "startdev": "tsnd --respawn server/server"
   },
   "author": "yourName",
   "license": "ISC"
