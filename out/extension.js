@@ -12,7 +12,7 @@ const styleString = require("./Boilerplates/nextBoilerplate/styles");
 const pkgjsonString = require("./Boilerplates/rootBoilerplate/pkgjsonBoilerplate");
 const envString = require("./Boilerplates/rootBoilerplate/envBoilerplate");
 const prismagraphqlString = require("./Boilerplates/serverBoilerplate/prismagraphqlBoilerplate");
-const apolloString = require("./Boilerplates/serverBoilerplate/apolloServer");
+const serverString = require("./Boilerplates/serverBoilerplate/serverBoilerplate");
 const contextString = require("./Boilerplates/serverBoilerplate/contextBoilerplate");
 const constructors_1 = require("./constructors");
 // this method is called when your extension is activated
@@ -29,30 +29,11 @@ function activate(context) {
         // Display a message box to the user
         vscode.window.showInformationMessage('UpNext Running!');
         const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-<<<<<<< HEAD
-        let isWin = process.platform === 'win32';
-        let terminal = vscode.window.createTerminal('UpNext');
-        if (isWin) {
-            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
-            constructors_1.makeFolder(myPath, 'pages');
-            constructors_1.makeFile(`${myPath}\\pages`, 'index.js', indexString);
-            constructors_1.makeFolder(`${myPath}\\pages`, 'api');
-            constructors_1.makeFile(`${myPath}\\pages\\api`, 'message.js', messageString);
-            terminal.sendText('npm install next react react-dom');
-            terminal.show();
-        }
-        else {
-            constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
-            constructors_1.makeFolder(myPath, 'pages');
-            constructors_1.makeFile(`${myPath}/pages`, 'index.js', indexString);
-            constructors_1.makeFolder(`${myPath}/pages`, 'api');
-            constructors_1.makeFile(`${myPath}/pages/api`, 'message.js', messageString);
-            terminal.sendText('npm install next react react-dom');
-            terminal.show();
-        }
-=======
+        //Checks user's machine for windows
         const isWin = process.platform === 'win32';
+        //Creates a seperate server to install dependencies named UpNext
         const terminal = vscode.window.createTerminal('UpNext');
+        //This divider checks if the os platform is windows. If windows, change the divider set to "\\", everything else "/"
         const divider = isWin ? "\\" : "/";
         //Creates package.json for user
         constructors_1.makeFile(myPath, 'package.json', pkgjsonString);
@@ -71,17 +52,16 @@ function activate(context) {
         constructors_1.makeFile(myPath, '.env', envString);
         //Creates server directory with server file along with context, typedefs, and resolvers
         constructors_1.makeFolder(myPath, 'server');
-        constructors_1.makeFile(`${myPath}${divider}server`, 'apolloServer.ts', apolloString);
+        constructors_1.makeFile(`${myPath}${divider}server`, 'server.ts', serverString);
         constructors_1.makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
         constructors_1.makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
         //Sends and executes terminal commands for user to install necessary packages
         terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-        terminal.sendText('npm install @apollo/client graphql apollo-server');
+        terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors');
         terminal.sendText('npm install prisma --save-dev');
         terminal.sendText('npm install @prisma/client');
         terminal.sendText('npx prisma migrate dev --name init');
         terminal.show();
->>>>>>> 71d0323469dbbe603f80d3b5de1ac31222c46389
     });
     // if context matches command, activate disposable function
     context.subscriptions.push(disposable);
