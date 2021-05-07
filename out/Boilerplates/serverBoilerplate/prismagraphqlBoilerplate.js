@@ -14,6 +14,7 @@ const typeDefs = \`
   }
   type Query {
     allUsers: [User!]!
+    getUser(data: UserInput!): User!
   }
   type Mutation {
     createUser(data: UserInput!): User!
@@ -26,6 +27,13 @@ const resolvers = {
   Query: {
     allUsers: (_parent, _args, context: Context) => {
       return context.prisma.user.findMany()
+    },
+    getUser: (_parent, args: { data: UserInput }, context: Context) => {
+      return context.prisma.user.findUnique({
+        where: {
+          email: args.data.email
+        }
+      })
     }
   },
   Mutation: {

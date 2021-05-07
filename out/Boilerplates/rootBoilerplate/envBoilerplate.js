@@ -6,6 +6,8 @@ const envString = `# Environment variables declared in this file are automatical
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
 DATABASE_URL="file:./dev.db"
+
+SECRET="THIS IS NOT A GOOD SECRET"
 `;
 module.exports = envString;
 //# sourceMappingURL=envBoilerplate.js.map
