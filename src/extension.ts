@@ -4,12 +4,13 @@ import * as vscode from 'vscode';
 import * as appString from './Boilerplates/nextBoilerplate/_app';
 import * as indexString from './Boilerplates/nextBoilerplate/index';
 import * as signupString from './Boilerplates/nextBoilerplate/signup';
-import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
+import * as loginString from './Boilerplates/nextBoilerplate/login';
 import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
-import * as prismagraphqlString from './Boilerplates/serverBoilerplate/prismagraphqlBoilerplate';
+import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
 import * as serverString from './Boilerplates/serverBoilerplate/serverBoilerplate';
+import * as prismagraphqlString from './Boilerplates/serverBoilerplate/prismagraphqlBoilerplate';
 import * as contextString from './Boilerplates/serverBoilerplate/contextBoilerplate';
 import { makeFolder, makeFile } from './constructors';
 
@@ -44,6 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}pages`, '_app.js', appString);
       makeFile(`${myPath}${divider}pages`, 'index.js', indexString);
       makeFile(`${myPath}${divider}pages`, 'signup.js', signupString);
+      makeFile(`${myPath}${divider}pages`, 'login.js', loginString);
       makeFolder(`${myPath}${divider}pages`, 'api');
       //Creates styles directory with css styling for whole application
       makeFolder(myPath, 'styles');
