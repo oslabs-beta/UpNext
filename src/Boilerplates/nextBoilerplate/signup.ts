@@ -13,9 +13,9 @@ const CREATE_USER = gql\`
 \`;
 
 function SignupPage() {
-  const router = useRouter()
-  
-  const[createUser] = useMutation(CREATE_USER);
+  const router = useRouter();
+
+  const [ createUser ] = useMutation(CREATE_USER);
   let email;
   let password;
 
@@ -28,10 +28,12 @@ function SignupPage() {
     <form id="signup" onSubmit={e => {
       e.preventDefault();
       createUser({
-        variables: { data: {
-          email: email.value,
-          password: password.value
-          }}
+        variables: {
+          data: {
+            email: email.value,
+            password: password.value
+          }
+        }
       })
       email.value = '';
       password.value = '';

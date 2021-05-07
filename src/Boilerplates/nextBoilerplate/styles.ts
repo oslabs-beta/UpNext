@@ -10,6 +10,10 @@ p {
 #signup {
   text-align: center;
 }
+
+#login {
+  text-align: center;
+}
 `;
 
 export = stylesString;
