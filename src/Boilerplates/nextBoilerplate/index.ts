@@ -1,7 +1,6 @@
 const indexString = `import Link from 'next/link';
 import React from "react"
 import {signIn, signOut, useSession} from "next-auth/client";
-
 function HomePage() {
   const [session, loading] = useSession();
   return (
@@ -25,7 +24,6 @@ function HomePage() {
     </main>
   )
 }
-
 export default HomePage;
 `;
 

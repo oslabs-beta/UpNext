@@ -1,6 +1,5 @@
 const signinString = `import { useLazyQuery, gql } from '@apollo/client';
 import Link from 'next/link';
-
 const GET_USER = gql\`
   query getUser($data: UserInput!) {
     getUser(data: $data) {
@@ -10,14 +9,11 @@ const GET_USER = gql\`
     }
   }
 \`;
-
 function signInPage() {
-
   const [getUser, { loading, error, data }] = useLazyQuery(GET_USER);
   let email;
   let password;
   if(error) console.log("Error in Sign In Page for useLazyQuery hook");
-
   return (
     <div>
       <Link href='/'>
@@ -44,7 +40,6 @@ function signInPage() {
     </div>
   )
 }
-
 export default signInPage;
 `;
 

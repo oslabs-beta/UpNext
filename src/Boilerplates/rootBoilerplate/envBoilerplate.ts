@@ -6,8 +6,8 @@ const envString = `# Environment variables declared in this file are automatical
 
 DATABASE_URL="file:./dev.db"
 
-GITHUB_ID="e46e8c1bd8217c345959"
-GITHUB_SECRET="4add46fd67824d5fad47a5bae9de77e8cf082567"
+GITHUB_ID=""
+GITHUB_SECRET=""
 AUTH0_CLIENT_ID=
 AUTH0_CLIENT_SECRET=
 AUTH0_DOMAIN=
