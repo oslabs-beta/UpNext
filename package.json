@@ -41,5 +41,8 @@
 		"mocha": "^8.2.1",
 		"typescript": "^4.1.3",
 		"vscode-test": "^1.5.0"
+	},
+	"dependencies": {
+		"graphql-yoga": "^1.18.3"
 	}
 }
