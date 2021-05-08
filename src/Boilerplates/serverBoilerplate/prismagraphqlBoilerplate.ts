@@ -1,4 +1,4 @@
-const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server-express'
+const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server-express';
 import { Context } from './context';
 
 const typeDefs = \`
@@ -69,7 +69,7 @@ interface UserInput {
 export const schema = makeExecutableSchema({
   resolvers,
   typeDefs,
-})
+});
 `;
 
 export = prismagraphqlString;

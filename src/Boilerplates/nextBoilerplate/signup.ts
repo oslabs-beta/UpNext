@@ -1,7 +1,6 @@
 const signupString = `import { useMutation, gql } from '@apollo/client';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 const CREATE_USER = gql\`
   mutation createUser($data: UserInput!) {
     createUser(data: $data) {
@@ -11,14 +10,11 @@ const CREATE_USER = gql\`
     }
   }
 \`;
-
 function SignupPage() {
-  const router = useRouter()
-  
-  const[createUser] = useMutation(CREATE_USER);
+  const router = useRouter();
+  const [ createUser ] = useMutation(CREATE_USER);
   let email;
   let password;
-
   return (
   <div>
     <Link href='/'>
@@ -28,10 +24,12 @@ function SignupPage() {
     <form id="signup" onSubmit={e => {
       e.preventDefault();
       createUser({
-        variables: { data: {
-          email: email.value,
-          password: password.value
-          }}
+        variables: {
+          data: {
+            email: email.value,
+            password: password.value
+          }
+        }
       })
       email.value = '';
       password.value = '';
@@ -44,7 +42,6 @@ function SignupPage() {
   </div>
   );
 }
-
 export default SignupPage;
 `;
 

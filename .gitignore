@@ -65,3 +65,18 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+out/extension.js
+out/extension.js.map
+out/Boilerplates/nextBoilerplate/index.js
+out/Boilerplates/nextBoilerplate/index.js.map
+out/Boilerplates/nextBoilerplate/login.js
+out/Boilerplates/nextBoilerplate/login.js.map
+out/Boilerplates/nextBoilerplate/signup.js
+out/Boilerplates/nextBoilerplate/signup.js.map
+out/Boilerplates/nextBoilerplate/styles.js
+out/Boilerplates/nextBoilerplate/styles.js.map
+out/Boilerplates/rootBoilerplate/envBoilerplate.js
+out/Boilerplates/rootBoilerplate/envBoilerplate.js.map
+out/Boilerplates/serverBoilerplate/contextBoilerplate.js
+out/Boilerplates/serverBoilerplate/prismagraphqlBoilerplate.js
+out/Boilerplates/serverBoilerplate/prismagraphqlBoilerplate.js.map
