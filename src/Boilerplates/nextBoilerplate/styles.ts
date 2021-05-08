@@ -11,7 +11,7 @@ p {
   text-align: center;
 }
 
-#login {
+#signin {
   text-align: center;
 }
 `;

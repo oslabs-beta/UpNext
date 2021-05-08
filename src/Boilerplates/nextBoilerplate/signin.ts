@@ -1,4 +1,4 @@
-const loginString = `import { useLazyQuery, gql } from '@apollo/client';
+const signinString = `import { useLazyQuery, gql } from '@apollo/client';
 import Link from 'next/link';
 
 const GET_USER = gql\`
@@ -11,20 +11,20 @@ const GET_USER = gql\`
   }
 \`;
 
-function LoginPage() {
+function signInPage() {
 
   const [getUser, { loading, error, data }] = useLazyQuery(GET_USER);
   let email;
   let password;
-  if(error) console.log("Error in Login Page for useLazyQuery hook");
+  if(error) console.log("Error in Sign In Page for useLazyQuery hook");
 
   return (
     <div>
       <Link href='/'>
         <button>Home</button>
       </Link>
-      <h1>Login Page</h1>
-      <form id="login" onSubmit={e => {
+      <h1>Sign In Page</h1>
+      <form id="signin" onSubmit={e => {
         e.preventDefault();
         getUser({
           variables: {
@@ -39,13 +39,13 @@ function LoginPage() {
       }}>
         <input ref = {node => {email = node}} type='text' placeholder='E-mail'/>
         <input ref = {node => {password = node}} type='password' placeholder='Password'/>
-        <input type='submit' value='Log In'/>
+        <input type='submit' value='Sign In'/>
       </form>
     </div>
   )
 }
 
-export default LoginPage;
+export default signInPage;
 `;
 
-export = loginString;
+export = signinString;

@@ -4,8 +4,9 @@ import * as vscode from 'vscode';
 import * as appString from './Boilerplates/nextBoilerplate/_app';
 import * as indexString from './Boilerplates/nextBoilerplate/index';
 import * as signupString from './Boilerplates/nextBoilerplate/signup';
-import * as loginString from './Boilerplates/nextBoilerplate/login';
+import * as signinString from './Boilerplates/nextBoilerplate/signin';
 import * as styleString from './Boilerplates/nextBoilerplate/styles';
+import * as nextauthString from './Boilerplates/nextBoilerplate/nextauth';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
 import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
@@ -45,8 +46,10 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}pages`, '_app.js', appString);
       makeFile(`${myPath}${divider}pages`, 'index.js', indexString);
       makeFile(`${myPath}${divider}pages`, 'signup.js', signupString);
-      makeFile(`${myPath}${divider}pages`, 'login.js', loginString);
+      makeFile(`${myPath}${divider}pages`, 'signin.js', signinString);
       makeFolder(`${myPath}${divider}pages`, 'api');
+      makeFolder(`${myPath}${divider}pages${divider}api`, 'auth');
+      makeFile(`${myPath}${divider}pages${divider}api${divider}auth`, '[...nextauth].js', nextauthString);
       //Creates styles directory with css styling for whole application
       makeFolder(myPath, 'styles');
       makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
@@ -60,9 +63,9 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
-      terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-      terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors');
-      terminal.sendText('npm install prisma --save-dev');
+      terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript');
+      terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors sqlite3');
+      terminal.sendText('npm install prisma @types/react --save-dev');
       terminal.sendText('npm install @prisma/client');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();

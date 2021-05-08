@@ -6,7 +6,17 @@ const envString = `# Environment variables declared in this file are automatical
 
 DATABASE_URL="file:./dev.db"
 
-SECRET="THIS IS NOT A GOOD SECRET"
+GITHUB_ID="e46e8c1bd8217c345959"
+GITHUB_SECRET="4add46fd67824d5fad47a5bae9de77e8cf082567"
+AUTH0_CLIENT_ID=
+AUTH0_CLIENT_SECRET=
+AUTH0_DOMAIN=
+EMAIL_SERVER_USER=
+EMAIL_SERVER_PASSWORD=
+EMAIL_SERVER_HOST=
+EMAIL_SERVER_PORT=
+EMAIL_FROM=
+NEXTAUTH_URL=http://localhost:3000
 `;
 
 export = envString;
