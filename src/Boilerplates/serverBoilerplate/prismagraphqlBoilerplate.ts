@@ -1,4 +1,4 @@
-const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server'
+const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server-express'
 import { Context } from './context';
 
 const typeDefs = \`
@@ -13,6 +13,7 @@ const typeDefs = \`
   }
   type Query {
     allUsers: [User!]!
+    getUser(data: UserInput!): User!
   }
   type Mutation {
     createUser(data: UserInput!): User!
@@ -25,6 +26,13 @@ const resolvers = {
   Query: {
     allUsers: (_parent, _args, context: Context) => {
       return context.prisma.user.findMany()
+    },
+    getUser: (_parent, args: { data: UserInput }, context: Context) => {
+      return context.prisma.user.findUnique({
+        where: {
+          email: args.data.email
+        }
+      })
     }
   },
   Mutation: {
@@ -36,7 +44,7 @@ const resolvers = {
       })
     },
     updateUser: (_parent, args: { email: string }, context: Context) => {
-      return context.prisma.user.update({  
+      return context.prisma.user.update({
         where: {
           email: args.email,
         },

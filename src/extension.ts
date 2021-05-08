@@ -9,7 +9,7 @@ import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
 import * as prismagraphqlString from './Boilerplates/serverBoilerplate/prismagraphqlBoilerplate';
-import * as apolloString from './Boilerplates/serverBoilerplate/apolloServer';
+import * as serverString from './Boilerplates/serverBoilerplate/serverBoilerplate';
 import * as contextString from './Boilerplates/serverBoilerplate/contextBoilerplate';
 import { makeFolder, makeFile } from './constructors';
 
@@ -29,10 +29,12 @@ export function activate(context: vscode.ExtensionContext) {
       // Display a message box to the user
       vscode.window.showInformationMessage('UpNext Running!');
       const myPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+      //Checks user's machine for windows
       const isWin = process.platform === 'win32';
 
+      //Creates a seperate server to install dependencies named UpNext
       const terminal: vscode.Terminal = vscode.window.createTerminal('UpNext');
-
+      //This divider checks if the os platform is windows. If windows, change the divider set to "\\", everything else "/"
       const divider = isWin ? "\\" : "/";
 
       //Creates package.json for user
@@ -52,12 +54,12 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(myPath, '.env', envString);
       //Creates server directory with server file along with context, typedefs, and resolvers
       makeFolder(myPath, 'server');
-      makeFile(`${myPath}${divider}server`, 'apolloServer.ts', apolloString);
+      makeFile(`${myPath}${divider}server`, 'server.ts', serverString);
       makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
       terminal.sendText('npm install next react react-dom ts-node-dev typescript');
-      terminal.sendText('npm install @apollo/client graphql apollo-server');
+      terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors');
       terminal.sendText('npm install prisma --save-dev');
       terminal.sendText('npm install @prisma/client');
       terminal.sendText('npx prisma migrate dev --name init');
