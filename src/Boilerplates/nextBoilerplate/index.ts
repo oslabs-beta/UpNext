@@ -18,6 +18,9 @@ function HomePage() {
     {session && (
       <div>
         Signed in
+        <button>
+        <Link href="/secret">Payment</Link>
+        </button>
         <button onClick={signOut}>Sign-Out</button> 
       </div>
     )}

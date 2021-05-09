@@ -7,6 +7,7 @@ import * as signupString from './Boilerplates/nextBoilerplate/signup';
 import * as signinString from './Boilerplates/nextBoilerplate/signin';
 import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as nextauthString from './Boilerplates/nextBoilerplate/nextauth';
+import * as secretString from './Boilerplates/nextBoilerplate/secret';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
 import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
@@ -47,6 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}pages`, 'index.js', indexString);
       makeFile(`${myPath}${divider}pages`, 'signup.js', signupString);
       makeFile(`${myPath}${divider}pages`, 'signin.js', signinString);
+      makeFile(`${myPath}${divider}pages`, 'secret.js', secretString);
       makeFolder(`${myPath}${divider}pages`, 'api');
       makeFolder(`${myPath}${divider}pages${divider}api`, 'auth');
       makeFile(`${myPath}${divider}pages${divider}api${divider}auth`, '[...nextauth].js', nextauthString);
