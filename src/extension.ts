@@ -73,10 +73,10 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
-      terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript stripe');
+      terminal.sendText('npm install next react react-dom ts-node-dev typescript stripe');
       terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors sqlite3');
       terminal.sendText('npm install mocha prisma @types/react --D');
-      terminal.sendText('npm install @prisma/client @stripe/react-stripe-js @stripe/stripe-js');
+      terminal.sendText('npm install @prisma/client @stripe/react-stripe-js @stripe/stripe-js next-auth');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();
     }
