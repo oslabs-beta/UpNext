@@ -61,8 +61,8 @@ export function activate(context: vscode.ExtensionContext) {
       makeFolder(myPath, 'styles');
       makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
       //Creates tests directory with jest and enzyme boilerplate tests
-      makeFolder(myPath, 'test');
-      makeFile(`${myPath}${divider}test`, 'mocha.js', mochaString);
+      makeFolder(myPath, '__tests__');
+      makeFile(`${myPath}${divider}__tests__`, 'mocha.js', mochaString);
       //Creates prisma directory with our prisma schemas and env file for sensitive data
       makeFolder(myPath, 'prisma');
       makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
@@ -70,11 +70,7 @@ export function activate(context: vscode.ExtensionContext) {
       //Creates server directory with server file along with context, typedefs, and resolvers
       makeFolder(myPath, 'server');
       makeFile(`${myPath}${divider}server`, 'server.ts', serverString);
-      makeFile(
-        `${myPath}${divider}server`,
-        'prismaGraphql.ts',
-        prismagraphqlString
-      );
+      makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
       terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript stripe');
