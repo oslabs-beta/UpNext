@@ -81,11 +81,9 @@ export function activate(context: vscode.ExtensionContext) {
       //Sends and executes terminal commands for user to install necessary packages
       terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript stripe');
       terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors sqlite3');
-      terminal.sendText('npm install jest enzyme @babel/plugin-syntax-jsx @babel/preset-env @babel/preset-react @babel/preset-typescript --D');
+      terminal.sendText('npm install jest enzyme --D');
       terminal.sendText('npm install prisma @types/react enzyme-adapter-react-16 --save-dev');
-      terminal.sendText('npm install @prisma/client');
-      terminal.sendText('npm install @stripe/react-stripe-js');
-      terminal.sendText('npm install @stripe/stripe-js');
+      terminal.sendText('npm install @prisma/client @stripe/react-stripe-js @stripe/stripe-js');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();
     }
