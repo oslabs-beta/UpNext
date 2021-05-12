@@ -21,7 +21,7 @@ function HomePage() {
         <Link href="/checkout">
           <button>Payment</button>
         </Link>
-        <button onClick={signOut}>Sign Out</button> 
+        <button onClick={signOut}>Sign Out</button>
       </div>
     )}
     </main>
