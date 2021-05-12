@@ -17,7 +17,7 @@
     "commands": [
       {
         "command": "upnext.createBoilerplate",
-        "title": "Create UpNext Boilerplate"
+        "title": "Create Boilerplate"
       }
     ]
   },
@@ -27,7 +27,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "mocha"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",

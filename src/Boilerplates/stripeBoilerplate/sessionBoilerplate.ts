@@ -1,6 +1,6 @@
 const sessionString = `import Stripe from 'stripe';
 
-co;nst stripe = new Stripe(\`\${process.env.STRIPE_SECRET_KEY}\`, {
+const stripe = new Stripe(\`\${process.env.STRIPE_SECRET_KEY}\`, {
   apiVersion: '2020-03-02',
 });
 
@@ -10,7 +10,7 @@ export default async (req, res) => {
     payment_method_types: ['card'],
     line_items: [
       {
-        price: \`price_1IpcWpFPhNUZ0D2uom22dn4v\`,
+        price: \`\${process.env.PRICE_ID}\`,
         quantity,
       },
     ],
