@@ -4,7 +4,7 @@ const pkgjsonString = `{
   "description": "insert description here!",
   "main": "index.js",
   "scripts": {
-    "test": "jest --ver"ose,
+    "test": "jest --verbose",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

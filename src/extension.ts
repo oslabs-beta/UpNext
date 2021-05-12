@@ -5,10 +5,9 @@ import * as appString from './Boilerplates/nextBoilerplate/_app';
 import * as indexString from './Boilerplates/nextBoilerplate/index';
 import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as signupString from './Boilerplates/nextBoilerplate/signup';
-import * as signinString from './Boilerplates/nextBoilerplate/signin';
 import * as nextauthString from './Boilerplates/nextBoilerplate/nextauth';
-import * as secretString from './Boilerplates/nextBoilerplate/secret';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
+import * as babelString from './Boilerplates/rootBoilerplate/babelBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
 import * as enzymeString from './Boilerplates/testBoilerplate/enzymeBoilerplate';
 import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
@@ -46,29 +45,20 @@ export function activate(context: vscode.ExtensionContext) {
 
       //Creates package.json for user
       makeFile(myPath, 'package.json', pkgjsonString);
+      makeFile(myPath, 'babel.config.js', babelString);
       //Creates pages directory with serverless routes
       makeFolder(myPath, 'pages');
       makeFile(`${myPath}${divider}pages`, '_app.js', appString);
       makeFile(`${myPath}${divider}pages`, 'index.js', indexString);
       makeFile(`${myPath}${divider}pages`, 'checkout.js', checkoutString);
       makeFile(`${myPath}${divider}pages`, 'signup.js', signupString);
-      makeFile(`${myPath}${divider}pages`, 'signin.js', signinString);
-      makeFile(`${myPath}${divider}pages`, 'secret.js', secretString);
       makeFile(`${myPath}${divider}pages`, 'success.js', successString);
+      //Creates API directory to house api endpoint functionality
       makeFolder(`${myPath}${divider}pages`, 'api');
       makeFolder(`${myPath}${divider}pages${divider}api`, 'auth');
-      makeFile(
-        `${myPath}${divider}pages${divider}api${divider}auth`,
-        '[...nextauth].js',
-        nextauthString
-      );
+      makeFile(`${myPath}${divider}pages${divider}api${divider}auth`,'[...nextauth].js', nextauthString);
       makeFolder(`${myPath}${divider}pages${divider}api`, 'checkout');
-      makeFile(
-        `${myPath}${divider}pages${divider}api${divider}checkout`,
-        'session.js',
-        sessionString
-      );
-
+      makeFile(`${myPath}${divider}pages${divider}api${divider}checkout`, 'session.js', sessionString);
       //Creates styles directory with css styling for whole application
       makeFolder(myPath, 'styles');
       makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
@@ -89,14 +79,10 @@ export function activate(context: vscode.ExtensionContext) {
       );
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
-      terminal.sendText(
-        'npm install next next-auth react react-dom ts-node-dev typescript stripe'
-      );
-      terminal.sendText(
-        'npm install @apollo/client graphql apollo-server-express express passport cors sqlite3'
-      );
-      terminal.sendText('npm install jest enzyme --D');
-      terminal.sendText('npm install prisma @types/react --save-dev');
+      terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript stripe');
+      terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors sqlite3');
+      terminal.sendText('npm install jest enzyme @babel/plugin-syntax-jsx @babel/preset-env @babel/preset-react @babel/preset-typescript --D');
+      terminal.sendText('npm install prisma @types/react enzyme-adapter-react-16 --save-dev');
       terminal.sendText('npm install @prisma/client');
       terminal.sendText('npm install @stripe/react-stripe-js');
       terminal.sendText('npm install @stripe/stripe-js');
