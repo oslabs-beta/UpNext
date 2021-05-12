@@ -1,6 +1,7 @@
 const prismagraphqlString = `import { makeExecutableSchema } from 'apollo-server-express';
 import { Context } from './context';
-
+//Your typedefs define the way your graphql inputs/outputs should look in your
+//graphql queries
 const typeDefs = \`
   type User {
     id: ID
@@ -21,7 +22,10 @@ const typeDefs = \`
     updateUser(email: String!): User!
   }
 \`
-
+//Your resolvers are your functions for your queries and mutations (Similar to express controllers). They are given
+//parent objects/arguments and are responsible for returning results from your queries/mutations. We have added basic
+//CRUD functionality for you to use at your disposable. **NOTE: we have only implemented the createUser Mutation for
+//you via the signup page on the front end. The rest is there for your reference!
 const resolvers = {
   Query: {
     allUsers: (_parent, _args, context: Context) => {
@@ -60,7 +64,8 @@ const resolvers = {
     }
   }
 };
-
+//This interface interacts with your resolvers by making sure your inputs are correct. It is modeled after the
+//input UserInput in your typedefs.
 interface UserInput {
   email: string
   password: string
