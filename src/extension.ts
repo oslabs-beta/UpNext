@@ -7,7 +7,6 @@ import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as signupString from './Boilerplates/nextBoilerplate/signup';
 import * as nextauthString from './Boilerplates/nextBoilerplate/nextauth';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
-import * as babelString from './Boilerplates/rootBoilerplate/babelBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
 import * as enzymeString from './Boilerplates/testBoilerplate/enzymeBoilerplate';
 import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
@@ -45,7 +44,6 @@ export function activate(context: vscode.ExtensionContext) {
 
       //Creates package.json for user
       makeFile(myPath, 'package.json', pkgjsonString);
-      makeFile(myPath, 'babel.config.js', babelString);
       //Creates pages directory with serverless routes
       makeFolder(myPath, 'pages');
       makeFile(`${myPath}${divider}pages`, '_app.js', appString);
