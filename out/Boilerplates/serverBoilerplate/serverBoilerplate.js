@@ -1,3 +1,4 @@
+"use strict";
 const serverString = `const { ApolloServer } = require('apollo-server-express');
 const express = require('express');
 import { schema } from './prismaGraphql';
@@ -22,5 +23,5 @@ app.listen({ port }, () => {
   console.log(\`Server listening on port: http://localhost:\${port}/graphql\`);
 });
 `;
-
-export = serverString;
+module.exports = serverString;
+//# sourceMappingURL=serverBoilerplate.js.map

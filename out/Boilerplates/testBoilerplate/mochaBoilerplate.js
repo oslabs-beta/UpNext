@@ -1,3 +1,4 @@
+"use strict";
 const mochaString = `const mocha = require('mocha');
 const assert = require('assert')
 const fs = require('fs');
@@ -118,5 +119,5 @@ describe('Check if boilerplate is properly created', () => {
   })
 })
 `;
-
-export = mochaString;
+module.exports = mochaString;
+//# sourceMappingURL=mochaBoilerplate.js.map

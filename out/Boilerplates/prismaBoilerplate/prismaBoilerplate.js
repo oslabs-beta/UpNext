@@ -1,3 +1,4 @@
+"use strict";
 const prismaString = `// This is your Prisma schema file
 //Intiates sqlite as your starter database. If you would like to change databases,
 //change your provider to the database of your choice and input your database uri
@@ -18,5 +19,5 @@ model User {
     password String
 }
 `;
-
-export = prismaString;
+module.exports = prismaString;
+//# sourceMappingURL=prismaBoilerplate.js.map

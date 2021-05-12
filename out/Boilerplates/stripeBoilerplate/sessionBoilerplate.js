@@ -1,3 +1,4 @@
+"use strict";
 const sessionString = `import Stripe from 'stripe';
 
 // creating new instance of Stripe with your secret key under .env file
@@ -29,5 +30,5 @@ export default async (req, res) => {
   res.status(200).json({ sessionId: session.id });
 };
 `;
-
-export = sessionString;
+module.exports = sessionString;
+//# sourceMappingURL=sessionBoilerplate.js.map
