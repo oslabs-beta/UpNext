@@ -3,9 +3,9 @@
 import * as vscode from 'vscode';
 import * as appString from './Boilerplates/nextBoilerplate/_app';
 import * as indexString from './Boilerplates/nextBoilerplate/index';
+import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as signupString from './Boilerplates/nextBoilerplate/signup';
 import * as signinString from './Boilerplates/nextBoilerplate/signin';
-import * as styleString from './Boilerplates/nextBoilerplate/styles';
 import * as nextauthString from './Boilerplates/nextBoilerplate/nextauth';
 import * as secretString from './Boilerplates/nextBoilerplate/secret';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
@@ -15,6 +15,9 @@ import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplat
 import * as serverString from './Boilerplates/serverBoilerplate/serverBoilerplate';
 import * as prismagraphqlString from './Boilerplates/serverBoilerplate/prismagraphqlBoilerplate';
 import * as contextString from './Boilerplates/serverBoilerplate/contextBoilerplate';
+import * as sessionString from './Boilerplates/stripeBoilerplate/sessionBoilerplate';
+import * as checkoutString from './Boilerplates/stripeBoilerplate/checkoutBoilerplate';
+import * as successString from './Boilerplates/stripeBoilerplate/successBoilerplate';
 import { makeFolder, makeFile } from './constructors';
 
 // this method is called when your extension is activated
@@ -39,20 +42,33 @@ export function activate(context: vscode.ExtensionContext) {
       //Creates a seperate server to install dependencies named UpNext
       const terminal: vscode.Terminal = vscode.window.createTerminal('UpNext');
       //This divider checks if the os platform is windows. If windows, change the divider set to "\\", everything else "/"
-      const divider = isWin ? "\\" : "/";
+      const divider = isWin ? '\\' : '/';
 
       //Creates package.json for user
       makeFile(myPath, 'package.json', pkgjsonString);
-      //Creates pages directory with our homepage and signup page
+      //Creates pages directory with serverless routes
       makeFolder(myPath, 'pages');
       makeFile(`${myPath}${divider}pages`, '_app.js', appString);
       makeFile(`${myPath}${divider}pages`, 'index.js', indexString);
+      makeFile(`${myPath}${divider}pages`, 'checkout.js', checkoutString);
       makeFile(`${myPath}${divider}pages`, 'signup.js', signupString);
       makeFile(`${myPath}${divider}pages`, 'signin.js', signinString);
       makeFile(`${myPath}${divider}pages`, 'secret.js', secretString);
+      makeFile(`${myPath}${divider}pages`, 'success.js', successString);
       makeFolder(`${myPath}${divider}pages`, 'api');
       makeFolder(`${myPath}${divider}pages${divider}api`, 'auth');
-      makeFile(`${myPath}${divider}pages${divider}api${divider}auth`, '[...nextauth].js', nextauthString);
+      makeFile(
+        `${myPath}${divider}pages${divider}api${divider}auth`,
+        '[...nextauth].js',
+        nextauthString
+      );
+      makeFolder(`${myPath}${divider}pages${divider}api`, 'checkout');
+      makeFile(
+        `${myPath}${divider}pages${divider}api${divider}checkout`,
+        'session.js',
+        sessionString
+      );
+
       //Creates styles directory with css styling for whole application
       makeFolder(myPath, 'styles');
       makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
@@ -66,14 +82,24 @@ export function activate(context: vscode.ExtensionContext) {
       //Creates server directory with server file along with context, typedefs, and resolvers
       makeFolder(myPath, 'server');
       makeFile(`${myPath}${divider}server`, 'server.ts', serverString);
-      makeFile(`${myPath}${divider}server`, 'prismaGraphql.ts', prismagraphqlString);
+      makeFile(
+        `${myPath}${divider}server`,
+        'prismaGraphql.ts',
+        prismagraphqlString
+      );
       makeFile(`${myPath}${divider}server`, 'context.ts', contextString);
       //Sends and executes terminal commands for user to install necessary packages
-      terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript');
-      terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors sqlite3');
+      terminal.sendText(
+        'npm install next next-auth react react-dom ts-node-dev typescript stripe'
+      );
+      terminal.sendText(
+        'npm install @apollo/client graphql apollo-server-express express passport cors sqlite3'
+      );
       terminal.sendText('npm install jest enzyme --D');
       terminal.sendText('npm install prisma @types/react --save-dev');
       terminal.sendText('npm install @prisma/client');
+      terminal.sendText('npm install @stripe/react-stripe-js');
+      terminal.sendText('npm install @stripe/stripe-js');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();
     }
