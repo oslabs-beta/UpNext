@@ -8,7 +8,7 @@ import * as signupString from './Boilerplates/nextBoilerplate/signup';
 import * as nextauthString from './Boilerplates/nextBoilerplate/nextauth';
 import * as pkgjsonString from './Boilerplates/rootBoilerplate/pkgjsonBoilerplate';
 import * as envString from './Boilerplates/rootBoilerplate/envBoilerplate';
-import * as enzymeString from './Boilerplates/testBoilerplate/enzymeBoilerplate';
+import * as mochaString from './Boilerplates/testBoilerplate/mochaBoilerplate';
 import * as prismaString from './Boilerplates/prismaBoilerplate/prismaBoilerplate';
 import * as serverString from './Boilerplates/serverBoilerplate/serverBoilerplate';
 import * as prismagraphqlString from './Boilerplates/serverBoilerplate/prismagraphqlBoilerplate';
@@ -62,7 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
       makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
       //Creates tests directory with jest and enzyme boilerplate tests
       makeFolder(myPath, '__tests__');
-      makeFile(`${myPath}${divider}__tests__`, 'enzyme.js', enzymeString);
+      makeFile(`${myPath}${divider}__tests__`, 'mocha.js', mochaString);
       //Creates prisma directory with our prisma schemas and env file for sensitive data
       makeFolder(myPath, 'prisma');
       makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
@@ -79,8 +79,7 @@ export function activate(context: vscode.ExtensionContext) {
       //Sends and executes terminal commands for user to install necessary packages
       terminal.sendText('npm install next next-auth react react-dom ts-node-dev typescript stripe');
       terminal.sendText('npm install @apollo/client graphql apollo-server-express express passport cors sqlite3');
-      terminal.sendText('npm install jest enzyme --D');
-      terminal.sendText('npm install prisma @types/react enzyme-adapter-react-16 --save-dev');
+      terminal.sendText('npm install mocha prisma @types/react --D');
       terminal.sendText('npm install @prisma/client @stripe/react-stripe-js @stripe/stripe-js');
       terminal.sendText('npx prisma migrate dev --name init');
       terminal.show();
