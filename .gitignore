@@ -65,6 +65,7 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+out
 out/extension.js
 out/extension.js.map
 out/Boilerplates/nextBoilerplate/index.js

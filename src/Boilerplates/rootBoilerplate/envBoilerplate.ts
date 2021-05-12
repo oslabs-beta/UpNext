@@ -29,9 +29,9 @@ EMAIL_SERVER_HOST="put your server host here"
 EMAIL_SERVER_PORT="put your server port here"
 EMAIL_FROM="put your email here"
 
-NEXT_PUBLIC_STRIPE_PUBLIC_KEY= "put your stripe public key here"
-STRIPE_SECRET_KEY="put your stripe secret key here"
-PRICE_ID= price_1IpcWpFPhNUZ0D2uom22dn4v
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY= "put your stripe public key here from the dashboard"
+STRIPE_SECRET_KEY= "put your stripe secret key here from the dashboard"
+PRICE_ID= "insert the price from the product in the stripe dashboard"
 `;
 
 export = envString;
