@@ -23,14 +23,15 @@ AUTH0_CLIENT_ID="put your auth0 client id here"
 AUTH0_CLIENT_SECRET="put your auth0 client secret here"
 AUTH0_DOMAIN="put your auth0 domain here"
 
-EMAIL_SERVER_USER=
-EMAIL_SERVER_PASSWORD=
-EMAIL_SERVER_HOST=
-EMAIL_SERVER_PORT=
-EMAIL_FROM=
+EMAIL_SERVER_USER="put your server user here"
+EMAIL_SERVER_PASSWORD="put your server password here"
+EMAIL_SERVER_HOST="put your server host here"
+EMAIL_SERVER_PORT="put your server port here"
+EMAIL_FROM="put your email here"
 
-NEXT_PUBLIC_STRIPE_PUBLIC_KEY=
-STRIPE_SECRET_KEY=
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY= "put your stripe public key here"
+STRIPE_SECRET_KEY="put your stripe secret key here"
+PRICE_ID= price_1IpcWpFPhNUZ0D2uom22dn4v
 `;
 
 export = envString;

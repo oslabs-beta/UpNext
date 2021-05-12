@@ -9,7 +9,7 @@ function HomePage() {
       <div>
         <button onClick={signIn}>Sign In</button>
         <Link href='/signup'>
-          <button>Sign-Up</button>
+          <button>Sign Up</button>
         </Link>
         <h1>Welcome to your UpNext Application Home Page!</h1>
         <p>To edit this page, add to index.js in your pages directory.</p>
@@ -18,10 +18,10 @@ function HomePage() {
     {session && (
       <div>
         Signed in
-        <button>
-        <Link href="/secret">Payment</Link>
-        </button>
-        <button onClick={signOut}>Sign-Out</button> 
+        <Link href="/checkout">
+          <button>Payment</button>
+        </Link>
+        <button onClick={signOut}>Sign Out</button> 
       </div>
     )}
     </main>
