@@ -1,3 +1,4 @@
+"use strict";
 const checkoutString = `
 //loadStripe is a function that returns a promise with a newly created Stripe Object.
 import { loadStripe } from '@stripe/stripe-js';
@@ -41,5 +42,5 @@ export default function Checkout() {
   );
 }
 `;
-
-export = checkoutString;
+module.exports = checkoutString;
+//# sourceMappingURL=checkoutBoilerplate.js.map
