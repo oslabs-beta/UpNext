@@ -25,12 +25,12 @@ function SignupPage() {
 
   return (
   <div>
-    // Utilizing Next Link to create a home button that redirects to the home page on click (next/link)
+    {/* Utilizing Next Link to create a home button that redirects to the home page on click (next/link) */}
     <Link href='/'>
     <button>Home</button>
     </Link>
     <h1>Sign-Up Page</h1>
-    // Sign up form, which on submit wil create a user using the createUser tuple mutation
+    {/* Sign up form, which on submit wil create a user using the createUser tuple mutation */}
     <form id="signup" onSubmit={e => {
       e.preventDefault();
       createUser({
