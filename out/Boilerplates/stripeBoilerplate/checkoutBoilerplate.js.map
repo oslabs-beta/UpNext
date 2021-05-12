@@ -1,1 +1,1 @@
-{"version":3,"file":"checkoutBoilerplate.js","sourceRoot":"","sources":["../../../src/Boilerplates/stripeBoilerplate/checkoutBoilerplate.ts"],"names":[],"mappings":";AAAA,MAAM,cAAc,GAAG;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CA8BtB,CAAC;AAEF,iBAAS,cAAc,CAAC"}
+{"version":3,"file":"checkoutBoilerplate.js","sourceRoot":"","sources":["../../../src/Boilerplates/stripeBoilerplate/checkoutBoilerplate.ts"],"names":[],"mappings":";AAAA,MAAM,cAAc,GAAG;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;CAwCtB,CAAC;AAEF,iBAAS,cAAc,CAAC"}
