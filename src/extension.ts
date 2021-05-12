@@ -61,8 +61,8 @@ export function activate(context: vscode.ExtensionContext) {
       makeFolder(myPath, 'styles');
       makeFile(`${myPath}${divider}styles`, 'global.css', styleString);
       //Creates tests directory with jest and enzyme boilerplate tests
-      makeFolder(myPath, '__tests__');
-      makeFile(`${myPath}${divider}__tests__`, 'mocha.js', mochaString);
+      makeFolder(myPath, 'test');
+      makeFile(`${myPath}${divider}test`, 'mocha.js', mochaString);
       //Creates prisma directory with our prisma schemas and env file for sensitive data
       makeFolder(myPath, 'prisma');
       makeFile(`${myPath}${divider}prisma`, 'schema.prisma', prismaString);
