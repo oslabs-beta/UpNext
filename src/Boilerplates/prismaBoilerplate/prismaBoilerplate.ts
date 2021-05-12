@@ -11,7 +11,7 @@ generator client {
   provider = "prisma-client-js"
 }
 //Defines your prisma schema. We have created an example of a simple User
-//with an email and password for you. 
+//with an email and password for you.
 model User {
     id       Int    @id @default(autoincrement())
     email    String @unique

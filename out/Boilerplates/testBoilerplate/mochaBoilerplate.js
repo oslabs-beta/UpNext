@@ -3,7 +3,9 @@ const mochaString = `const mocha = require('mocha');
 const assert = require('assert')
 const fs = require('fs');
 
-
+//**Run these tests using the npm test command after you first create your
+//boilerplate to ensure that all files are created properly. If you have
+//missing files for some reason, run your create boilerplate command again and retest.**
 describe('Check if boilerplate is properly created', () => {
   describe('Checks if all directories are created', () => {
     // PAGES

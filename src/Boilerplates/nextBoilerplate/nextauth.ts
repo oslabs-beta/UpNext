@@ -1,6 +1,10 @@
 const nextauthString = `import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
+
+// Creates options for serverless authentication
 const options = {
+  // Each provider will establish OAuth capabilities with the specified API
+  // Make sure to change the environment variables in .env to have proper functionality
   providers: [
     Providers.GitHub({
       clientId: process.env.GITHUB_ID,
@@ -30,12 +34,14 @@ const options = {
       from: process.env.EMAIL_FROM,
     }),
   ],
+  // Database info
   database: {
     type: "sqlite",
     database: "../prisma/dev.db",
     synchronize: true,
   }
 };
+
 export default (req, res) => NextAuth(req, res, options);
 `;
 
