@@ -1,6 +1,10 @@
+<p align="center">
+<a href="https://i.imgur.com/q5WS2Ko.png"><img src="https://i.imgur.com/q5WS2Ko.png" width="750" height="350"/></a>
+</p>
+
 # About
 
-A comprehensive, open-source [Visual Studio Code](https://code.visualstudio.com/) extension for creating [SaaS application](https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service) boilerplate with one simple command. [UpNext](https://github.com/oslabs-beta/UpNext) delivers all of the features needed to jumpstart your application including end to end CRUD functionality, authentication, payments/billing and more.
+A comprehensive, open-source [Visual Studio Code](https://code.visualstudio.com/) extension for creating boilerplate for a fullstack [SaaS application](https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service) with one simple command. [UpNext](https://github.com/oslabs-beta/UpNext) delivers all of the features needed to jumpstart your application including end to end CRUD functionality, authentication, payments/billing and more.
 
 ⚠️ Disclaimer: This is beta software, which means there may still be bugs. Please [report any bugs and share your feedback](https://github.com/oslabs-beta/UpNext/issues). Refer to the Known Issues section for more.
 
@@ -23,7 +27,7 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Type in and select `Create Boilerplate` from the drop down menu
 
 <p align="center">
-<a href="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif"><img src="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif" title="source: imgur.com" width="750"/></a>
+<a href="https://media.giphy.com/media/ATWi3W1TnCnkqjYnFO/giphy.gif"><img src="https://media.giphy.com/media/ATWi3W1TnCnkqjYnFO/giphy.gif" width="750"/></a>
 </p>
 
 - `Create Boilerplate` should create a new UpNext terminal in your VS Code and start installing all of your dependencies. Wait until installation has concluded before continuing.
@@ -31,13 +35,13 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Now that you have all of your dependencies, run the `npm test` script to ensure that all of your files/directories have been successfully created. If you are missing files, run the `Create Boilerplate` command again and re-run your test script until you pass all tests.
 
 <p align="center">
-<a href="https://i.imgur.com/BMCbrfu.png"><img src="https://i.imgur.com/BMCbrfu.png" width="750"/></a>
+<a href="https://i.imgur.com/BMCbrfu.png"><img src="https://i.imgur.com/BMCbrfu.png" width="600" height="700"/></a>
 </p>
 
 - After all of your files/directories have been successfully created, head over to your `.env` file located in the root directory. It should look a little something like this:
 
 <p align="center">
-<a href="https://i.imgur.com/vT8kJlv.png"><img src="https://i.imgur.com/vT8kJlv.png" title="source: imgur.com" width="750"/></a>
+<a href="https://i.imgur.com/vT8kJlv.png"><img src="https://i.imgur.com/vT8kJlv.png" width="750"/></a>
 </p>
 
 - Your `.env` file houses all of the sensitive information for your [OAuth](https://next-auth.js.org/getting-started/introduction) and [Stripe Payments](https://stripe.com/docs/keys). Be sure to replace our placeholder strings with your ids and secrets (do not include quotes) before attempting to test the authentication and payments page. Be sure to include your `.env` in your `.gitignore` for security purposes.
@@ -73,8 +77,8 @@ Initial release of UpNext
 
 # Contributors
 
-Andrew Kim: [Github](https://github.com/andrewkimq) [LinkedIn](https://www.linkedin.com/in/andrewkimq/)
-Jason Lee: [Github](https://github.com/jason-d-lee) [LinkedIn](https://www.linkedin.com/in/jason-dongyul-lee)
-Jorge Carlos 'JC' Fernandez: [Github](https://github.com/jorgecarlosfernandez) [LinkedIn](https://www.linkedin.com/in/jorge-carlos-fernandez/)
-Kai Evans: [Github](https://github.com/kaijosefevans) [LinkedIn](https://www.linkedin.com/in/kaijosefevans/)
-Hyesung 'Peter' Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
+- Andrew Kim: [Github](https://github.com/andrewkimq) [LinkedIn](https://www.linkedin.com/in/andrewkimq/)
+- Jason Lee: [Github](https://github.com/jason-d-lee) [LinkedIn](https://www.linkedin.com/in/jason-dongyul-lee)
+- Jorge Carlos 'JC' Fernandez: [Github](https://github.com/jorgecarlosfernandez) [LinkedIn](https://www.linkedin.com/in/jorge-carlos-fernandez/)
+- Kai Evans: [Github](https://github.com/kaijosefevans) [LinkedIn](https://www.linkedin.com/in/kaijosefevans/)
+- Hyesung 'Peter' Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
