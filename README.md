@@ -1,71 +1,80 @@
-# upnext README
+# About
 
-A comprehensive, open-source Visual Studio Code extension offering an interactive GUI for accessing Next.js commands and resources.
+A comprehensive, open-source [Visual Studio Code](https://code.visualstudio.com/) extension for creating [SaaS application](https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service) boilerplate with one simple command. [UpNext](https://github.com/oslabs-beta/UpNext) delivers all of the features needed to jumpstart your application including end to end CRUD functionality, authentication, payments/billing and more.
 
-## Features
+⚠️ Disclaimer: This is beta software, which means there may still be bugs. Please [report any bugs and share your feedback](https://github.com/oslabs-beta/UpNext/issues). Refer to the Known Issues section for more.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+UpNext is currently only compatible with [npm](https://www.npmjs.com/) for package management.
 
-For example if there is an image subfolder under your extension project workspace:
+# Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Install [Visual Studio Code](https://code.visualstudio.com/download)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+2. Launch Visual Studio Code
 
-## Requirements
+3. Install our UpNext extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+# Configuration
 
-## Extension Settings
+- Initiate a git repository including your `README`, `.gitignore`, and `LICENSE` as we do not provide these files. Then, open your repository with Visual Studio Code.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- Launch the command palette by using `Ctrl-Shift-P` (Windows, Linux) or `Cmd-Shift-P` (Mac/OSX)
 
-For example:
+- Type in and select `Create Boilerplate` from the drop down menu
 
-This extension contributes the following settings:
+<p align="center">
+<a href="https://i.imgur.com/pL6Oove"><img src="https://i.imgur.com/pL6Oove.jpg" title="source: imgur.com" width="750"/></a>
+</p>
 
-- `myExtension.enable`: enable/disable this extension
-- `myExtension.thing`: set to `blah` to do something
+- `Create Boilerplate` should create a new UpNext terminal in your VS Code and start installing all of your dependencies. Wait until installation has concluded before continuing.
 
-## Known Issues
+- Now that you have all of your dependencies, run the `npm test` script to ensure that all of your files/directories have been successfully created. If you are missing files, run the `Create Boilerplate` command again and re-run your test script until you pass all tests.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+<p align="center">
+<a href="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif"><img src="https://media.giphy.com/media/WQp504jwshz2d6u24S/source.gif" width="750"/></a>
+</p>
 
-## Release Notes
+- After all of your files/directories have been successfully created, head over to your `.env` file located in the root directory. It should look a little something like this:
 
-Users appreciate release notes as you update your extension.
+<p align="center">
+<a href="https://imgur.com/a/dK635tv"><img src="https://imgur.com/a/dK635tv.jpg" title="source: imgur.com" width="750"/></a>
+</p>
 
-### 1.0.0
+- Your `.env` file houses all of the sensitive information for your [OAuth](https://next-auth.js.org/getting-started/introduction) and [Stripe Payments](https://stripe.com/docs/keys). Be sure to replace our placeholder strings with your ids and secrets (do not include quotes) before attempting to test the authentication and payments page. Be sure to include your `.env` in your `.gitignore` for security purposes.
 
-Initial release of ...
+- Once you have your ids and secrets properly assigned, test our boilerplate by starting Next in development mode using `npm run dev` and in a different terminal use `npm run startdev` to start the server.
 
-### 1.0.1
+- Congratulations, you've finished configuring your UpNext boilerplate. Now focus on your business logic. If you've enjoyed your experience, star us on [Github](https://github.com/oslabs-beta/UpNext) and clap our [Medium]() article.
 
-Fixed issue #.
+# Features
 
-### 1.1.0
+A modern and robust tech stack for all types of applications including:
 
-Added features X, Y, and Z.
+- [React](https://reactjs.org/) with [Next.js](https://nextjs.org/) framework
 
----
+  - Quick and easy routing capabilities using Next [Router](https://nextjs.org/docs/api-reference/next/router)/[Link](https://nextjs.org/docs/api-reference/next/link)
+  - Serverless authentication and OAuth using [Next Auth](https://next-auth.js.org/)
 
-## Following extension guidelines
+- [Apollo](https://www.apollographql.com/) [Client](https://www.apollographql.com/docs/react/) and [Server](https://www.apollographql.com/docs/apollo-server/)
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+- [Express](https://expressjs.com/) Server
 
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+- [GraphQL](https://graphql.org/) utilizing a [Prisma](https://www.prisma.io/) ORM
 
-## Working with Markdown
+- [Stripe](https://stripe.com/) [API](https://stripe.com/docs/api)
 
-**Note:** You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+# Release Notes
 
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-- Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-- Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+UpNext current version: 1.0.0
 
-### For more information
+## 1.0.0
 
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Initial release of UpNext
 
-**Enjoy!**
+# Contributors
+
+Andrew Kim: [Github](https://github.com/andrewkimq) [LinkedIn](https://www.linkedin.com/in/andrewkimq/)
+Jason Lee: [Github](https://github.com/jason-d-lee) [LinkedIn](https://www.linkedin.com/in/jason-dongyul-lee)
+Jorge Carlos 'JC' Fernandez: [Github](https://github.com/jorgecarlosfernandez) [LinkedIn](https://www.linkedin.com/in/jorge-carlos-fernandez/)
+Kai Evans: [Github](https://github.com/kaijosefevans) [LinkedIn](https://www.linkedin.com/in/kaijosefevans/)
+Hyesung 'Peter' Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
