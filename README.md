@@ -54,6 +54,8 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 
 A modern and robust tech stack for all types of applications including:
 
+- [Javascript](https://www.javascript.com/) and [Typescript](https://www.typescriptlang.org/)
+
 - [React](https://reactjs.org/) with [Next.js](https://nextjs.org/) framework
 
   - Quick and easy routing capabilities using Next [Router](https://nextjs.org/docs/api-reference/next/router)/[Link](https://nextjs.org/docs/api-reference/next/link)
