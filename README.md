@@ -6,7 +6,7 @@
 
 A comprehensive, open-source [Visual Studio Code](https://code.visualstudio.com/) extension for creating boilerplate for a fullstack [SaaS application](https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service) with one simple command. [UpNext](https://github.com/oslabs-beta/UpNext) delivers all of the features needed to jumpstart your application including end to end CRUD functionality, authentication, payments/billing and more.
 
-⚠️ Disclaimer: This is beta software, which means there may still be bugs. Please [report any bugs and share your feedback](https://github.com/oslabs-beta/UpNext/issues). Refer to the Known Issues section for more.
+⚠️ Disclaimer: This is beta software, which means there may still be bugs. Please [report any bugs and share your feedback](https://github.com/oslabs-beta/UpNext/issues).
 
 UpNext is currently only compatible with [npm](https://www.npmjs.com/) for package management.
 
@@ -80,7 +80,7 @@ Initial release of UpNext
 # Contributors
 
 - Andrew Kim: [Github](https://github.com/andrewkimq) [LinkedIn](https://www.linkedin.com/in/andrewkimq/)
+- Hyesung Peter Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
 - Jason Lee: [Github](https://github.com/jason-d-lee) [LinkedIn](https://www.linkedin.com/in/jason-dongyul-lee)
 - Jorge Carlos 'JC' Fernandez: [Github](https://github.com/jorgecarlosfernandez) [LinkedIn](https://www.linkedin.com/in/jorge-carlos-fernandez/)
 - Kai Evans: [Github](https://github.com/kaijosefevans) [LinkedIn](https://www.linkedin.com/in/kaijosefevans/)
-- Hyesung Peter Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
