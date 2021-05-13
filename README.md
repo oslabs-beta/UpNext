@@ -4,7 +4,7 @@
 
 # About
 
-A comprehensive, open-source [Visual Studio Code](https://code.visualstudio.com/) extension for creating boilerplate for a fullstack [SaaS application](https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service) with one simple command. [UpNext](https://github.com/oslabs-beta/UpNext) delivers all of the features needed to jumpstart your application including end to end CRUD functionality, authentication, payments/billing and more.
+A comprehensive, open-source [Visual Studio Code](https://code.visualstudio.com/) extension for creating boilerplate for a fullstack [SaaS application](https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service) with one simple command. [UpNext](https://upnextjs.org/) delivers all of the features needed to jumpstart your application including end to end CRUD functionality, authentication, payments/billing and more.
 
 ⚠️ Disclaimer: This is beta software, which means there may still be bugs. Please [report any bugs and share your feedback](https://github.com/oslabs-beta/UpNext/issues).
 
@@ -16,7 +16,7 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 
 2. Launch Visual Studio Code
 
-3. Install our UpNext extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/VSCode)
+3. Install our UpNext extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=UpNext.upnext)
 
 # Configuration
 
