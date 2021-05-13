@@ -23,7 +23,7 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Type in and select `Create Boilerplate` from the drop down menu
 
 <p align="center">
-<a href="https://i.imgur.com/pL6Oove"><img src="https://i.imgur.com/pL6Oove.jpg" title="source: imgur.com" width="750"/></a>
+<a href="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif"><img src="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif" title="source: imgur.com" width="750"/></a>
 </p>
 
 - `Create Boilerplate` should create a new UpNext terminal in your VS Code and start installing all of your dependencies. Wait until installation has concluded before continuing.
@@ -31,7 +31,7 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Now that you have all of your dependencies, run the `npm test` script to ensure that all of your files/directories have been successfully created. If you are missing files, run the `Create Boilerplate` command again and re-run your test script until you pass all tests.
 
 <p align="center">
-<a href="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif"><img src="https://media.giphy.com/media/WQp504jwshz2d6u24S/source.gif" width="750"/></a>
+<a href="https://imgur.com/BMCbrfu"><img src="https://imgur.com/BMCbrfu" width="750"/></a>
 </p>
 
 - After all of your files/directories have been successfully created, head over to your `.env` file located in the root directory. It should look a little something like this:
