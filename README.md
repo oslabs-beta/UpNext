@@ -27,7 +27,7 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Type in and select `Create Boilerplate` from the drop down menu
 
 <p align="center">
-<a href="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif"><img src="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif" width="550" height ="400"/></a>
+<a href="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif"><img src="https://media.giphy.com/media/WQp504jwshz2d6u24S/giphy.gif" width="500" height ="300"/></a>
 </p>
 
 - `Create Boilerplate` should create a new UpNext terminal in your VS Code and start installing all of your dependencies. Wait until installation has concluded before continuing.
