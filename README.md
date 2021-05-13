@@ -48,11 +48,13 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 
 - Once you have your ids and secrets properly assigned, test our boilerplate by starting Next in development mode using `npm run dev` and in a different terminal use `npm run startdev` to start the server.
 
-- Congratulations, you've finished configuring your UpNext boilerplate. Now focus on your business logic. If you've enjoyed your experience, star us on [Github](https://github.com/oslabs-beta/UpNext) and clap our [Medium]() article.
+- Congratulations, you've finished configuring your UpNext boilerplate. Now focus on your business logic. If you've enjoyed your experience, star us on [Github](https://github.com/oslabs-beta/UpNext) and clap our [Medium](https://jason-d-lee.medium.com/jumpstart-your-next-saas-application-with-upnext-c7eaf8bb7d7f) article.
 
 # Features
 
 A modern and robust tech stack for all types of applications including:
+
+- [Javascript](https://www.javascript.com/) and [Typescript](https://www.typescriptlang.org/)
 
 - [React](https://reactjs.org/) with [Next.js](https://nextjs.org/) framework
 
@@ -81,4 +83,4 @@ Initial release of UpNext
 - Jason Lee: [Github](https://github.com/jason-d-lee) [LinkedIn](https://www.linkedin.com/in/jason-dongyul-lee)
 - Jorge Carlos 'JC' Fernandez: [Github](https://github.com/jorgecarlosfernandez) [LinkedIn](https://www.linkedin.com/in/jorge-carlos-fernandez/)
 - Kai Evans: [Github](https://github.com/kaijosefevans) [LinkedIn](https://www.linkedin.com/in/kaijosefevans/)
-- Hyesung 'Peter' Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
+- Hyesung Peter Lee: [Github](https://github.com/peterhyesung) [LinkedIn](https://www.linkedin.com/in/peterhyesung/)
