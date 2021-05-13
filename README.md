@@ -71,9 +71,9 @@ A modern and robust tech stack for all types of applications including:
 
 # Release Notes
 
-UpNext current version: 1.0.0
+UpNext current version: 0.0.2
 
-## 1.0.0
+## 0.0.2
 
 Initial release of UpNext
 

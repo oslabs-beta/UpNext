@@ -4,9 +4,9 @@
   "name": "upnext",
   "publisher": "UpNext",
   "displayName": "UpNext",
-  "description": "The UpNext extension",
+  "description": "The modern SaaS boilerplate.",
   "icon": "UpNextIcon.png", 
-  "version": "1.0.0",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.55.0"
   },
