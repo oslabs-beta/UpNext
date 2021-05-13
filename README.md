@@ -35,7 +35,7 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Now that you have all of your dependencies, run the `npm test` script to ensure that all of your files/directories have been successfully created. If you are missing files, run the `Create Boilerplate` command again and re-run your test script until you pass all tests.
 
 <p align="center">
-<a href="https://i.imgur.com/BMCbrfu.png"><img src="https://i.imgur.com/BMCbrfu.png" width="600" height="700"/></a>
+<a href="https://i.imgur.com/BMCbrfu.png"><img src="https://i.imgur.com/BMCbrfu.png" width="500" height="600"/></a>
 </p>
 
 - After all of your files/directories have been successfully created, head over to your `.env` file located in the root directory. It should look a little something like this:
