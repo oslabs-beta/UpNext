@@ -31,13 +31,13 @@ UpNext is currently only compatible with [npm](https://www.npmjs.com/) for packa
 - Now that you have all of your dependencies, run the `npm test` script to ensure that all of your files/directories have been successfully created. If you are missing files, run the `Create Boilerplate` command again and re-run your test script until you pass all tests.
 
 <p align="center">
-<a href="https://imgur.com/BMCbrfu"><img src="https://imgur.com/BMCbrfu" width="750"/></a>
+<a href="https://i.imgur.com/BMCbrfu.png"><img src="https://i.imgur.com/BMCbrfu.png" width="750"/></a>
 </p>
 
 - After all of your files/directories have been successfully created, head over to your `.env` file located in the root directory. It should look a little something like this:
 
 <p align="center">
-<a href="https://imgur.com/a/dK635tv"><img src="https://imgur.com/a/dK635tv.jpg" title="source: imgur.com" width="750"/></a>
+<a href="https://i.imgur.com/vT8kJlv.png"><img src="https://i.imgur.com/vT8kJlv.png" title="source: imgur.com" width="750"/></a>
 </p>
 
 - Your `.env` file houses all of the sensitive information for your [OAuth](https://next-auth.js.org/getting-started/introduction) and [Stripe Payments](https://stripe.com/docs/keys). Be sure to replace our placeholder strings with your ids and secrets (do not include quotes) before attempting to test the authentication and payments page. Be sure to include your `.env` in your `.gitignore` for security purposes.
